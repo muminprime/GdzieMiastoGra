@@ -26,9 +26,5 @@
 <div id="age"> </div>
 </p>
 
-<?php
-	echo "fff";
-?>
-
 </body>
 </html>
