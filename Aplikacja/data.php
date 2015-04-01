@@ -34,13 +34,7 @@
 		<p style=\"margin-top:3%;margin-left:3%\">Ograniczenia wiekowe: ".$data['wiek']."</p>
 		</b>
 		</div>	
-		</div>";
-		
-		
-		
-		#$dohtml="<center>".$data['name']." ".$data['Nazwisko']." age is ".$data['age']."</center>";
-		#$dohtml.="<center>and his index is ".$data['indeks']."</center><p></p>";
-		#echo $dohtml;	
+		</div>";	
 		}
 			
 	}

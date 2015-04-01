@@ -9,7 +9,7 @@
 	function get(){
 		$.post('data.php', {}, 
 			function(output) {
-				$('#scena').html(output).show();
+				$('#scena').html(output).fadeIn(1000);
 			});
 	}
 
