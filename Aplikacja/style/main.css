@@ -19,9 +19,9 @@ overflow-y: auto;
 #koncert{
 position:relative;
 width:90%;
-height:20%;
-background-color:red;
-#border:2px solid green;
+height:30%;
+#background-color:red;
+border:2px solid red;
 margin-left:5%;
 margin-top:2%;
 }
@@ -33,24 +33,26 @@ width:12%;
 height:100%;
 }
 #koncert_nazwa{
+font-size:120%;
 position:relative;
 float:left;
-background-color:yellow;
+#background-color:yellow;
 width:88%;
 height:20%;
 }
 #koncert_lewe_dane{
-color:white;
+font-size:100%;
 position:relative;
 float:left;
-background-color:blue;
+#background-color:blue;
 width:44%;
 height:80%;
 }
 #koncert_prawe_dane{
+font-size:90%;
 position:relative;
 float:left;
-background-color:green;
+#background-color:green;
 width:44%;
 height:80%;
 }
