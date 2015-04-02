@@ -7,6 +7,7 @@
 <script type="text/javascript">
 
 	function get(){
+		$('#scena').hide();
 		$.post('data.php', {}, 
 			function(output) {
 				$('#scena').html(output).fadeIn(1000);
@@ -24,12 +25,9 @@
 
 
 
-
-<div id="scena">
-
-	
-	
-
-
+<div id="scena_do_pojawiania">
+	<div id="scena">
+	</div>
+</div>
 </body>
 </html>
