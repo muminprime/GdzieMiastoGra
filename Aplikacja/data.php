@@ -13,26 +13,26 @@
 		while($data=mysql_fetch_assoc($wynik)){
 		echo "<div id=\"koncert\">
 		<div id=\"koncert_logo\">
-		<p style=\"margin-top:40%;margin-left:40%\" >Logo</p>
+		Logo
 		</div>
 		<div id=\"koncert_nazwa\">
 		<b>
-		<p style=\"margin-left:45%;margin-top:0.5%;\">".$data['nazwa_zespolu']."</p>
+		".$data['nazwa_zespolu']."
 		</b>
 		</div>
 		<div id=\"koncert_lewe_dane\">
 		<b>
-		<p style=\"margin-top:3%;margin-left:3%\">Gatunek muzyki: ".$data['gatunek']."</p>
-		<p style=\"margin-top:3%;margin-left:3%\">Gdzie grają: ".$data['nazwa_lokalu']."</p>
-		<p style=\"margin-top:3%;margin-left:3%\">Adres: ".$data['adres_lokalu']."</p>
+		Gatunek muzyki: ".$data['gatunek'].
+		"</br>Gdzie grają: ".$data['nazwa_lokalu'].
+		"</br>Adres: ".$data['adres_lokalu']."
 		</b>
 		</div>
 		<div id=\"koncert_prawe_dane\">
 		<b>
-		<p style=\"margin-top:3%;margin-left:3%\">Data i godzina: ".$data['data_godzina']."</p>
-		<p style=\"margin-top:3%;margin-left:3%\">Cena biletu: ".$data['cena']."</p>
-		<p style=\"margin-top:3%;margin-left:3%\">Ograniczenia wiekowe: ".$data['wiek']."</p>
-		</b>
+		Data i godzina: ".$data['data_godzina'].
+		"</br>Cena biletu: ".$data['cena'].
+		"</br>Ograniczenia wiekowe: ".$data['wiek'].
+		"</b>
 		</div>	
 		</div>";	
 		}

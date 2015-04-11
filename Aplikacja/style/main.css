@@ -1,66 +1,185 @@
 body{
 margin:0px;
-padding:10px;
-height:100%;
+padding:0px;
+#height:800px;
+}
+#logo{
+#background-image: url('../image/Motyw_cz/logo.png') ;
+background-size:100% 100%;
+position:relative;
+float:left;
+width:20%;
+height:20%;
+}
+#tytul{
+position:relative;
+#background-image: url('../image/Motyw_cz/tytul.png') ;
+background-size:100% 100%;
+float:left;
+width:80%;
+height:20%;
+}
+#kra_filtr{
+position:relative;
+background-size:100% 100%;
+float:left;
+width:23.8%;
+height:6%;
+}
+#kra_scena{
+position:relative;
+background-size:100% 100%;
+float:left;
+width:52.4%;
+height:6%;
+}
+#kra_user{
+position:relative;
+background-size:100% 100%;
+float:left;
+width:23.8%;
+height:6%;
+}
+#sekcja_filtrow{
+#background-image: url('../image/tlo_nie/filtry.png') ;
+background-size:100% 100%;
+position:relative;
+float:left;
+width:20.475%;
+height:80%;
+}
+#kra_lew{
+position:relative;
+background-size:100% 100%;
+float:left;
+height:80%;
+width:3.6%;
+}
+#kra_pra{
+position:relative;
+background-size:100% 100%;
+float:left;
+height:80%;
+width:3.6%;
+}
+#uzytkownik{
+#background-image: url('../image/tlo_nie/panel_user.png') ;
+background-size:100% 100%;
+position:relative;
+float:left;
+width:20.475%;
+height:80%;
 }
 
-#scena{
-display:none;
+#scena_do_pojawiania{
+#background-image: url('../image/tlo_nie/scena.png') ;
+background-size:100% 100%;
 position:relative;
-width:100%;
-height:100%;
-background-color: #80B8E8;
+float:left;
+width:51.85%;
+height:80%;
 #border: 2px solid red;
 margin:0px;
-padding:0px;
-overflow-y: auto;
 }
-#scena_do_pojawiania{
+#scena{
+display:none;
+#background-image: url('../image/tlo_nie/scena.png') ;
+#background-size:100% 100%;
 position:relative;
-width:100%;
-height:70%;
-background-color: #80B8E8;
-border: 2px solid red;
-margin:0px;
-padding:0px;
+width:98%;
+margin-left:5px;
+height:98%;
+margin-top:5px;
+overflow-y: auto;
 }
 #koncert{
 position:relative;
 width:90%;
-height:30%;
+height:5cm;
 background-color:white;
-border:2px solid red;
+#border:2px solid red;
 margin-left:5%;
 margin-top:2%;
+margin-bottom:2%;
 }
 #koncert_logo{
 position:relative;
 float:left;
 background-color:gray;
-width:12%;
+width:15%;
 height:100%;
 }
 #koncert_nazwa{
-font-size:120%;
+text-align:center;
+font-size:1cm;
 position:relative;
 float:left;
 #background-color:yellow;
-width:88%;
-height:20%;
+width:85%;
+height:30%;
 }
 #koncert_lewe_dane{
-font-size:100%;
+font-size:130%;
+padding-left:2%;
 position:relative;
 float:left;
 #background-color:blue;
-width:44%;
-height:80%;
+width:39%;
+height:70%;
 }
 #koncert_prawe_dane{
-font-size:90%;
+font-size:130%;
 position:relative;
 float:left;
 #background-color:green;
-width:44%;
-height:80%;
+width:41%;
+height:70%;
+}
+#menu1{
+#background-image: url('../image/Motyw_cz/menu.png') ;
+background-size:100% 100%;
+position:relative;
+float:left;
+width:20%;
+height:20%;
+}
+#menu2{
+#background-image: url('../image/Motyw_cz/menu.png') ;
+background-size:100% 100%;
+position:relative;
+float:left;
+width:20%;
+height:20%;
+}
+#menu3{
+#background-image: url('../image/Motyw_cz/menu.png') ;
+background-size:100% 100%;
+position:relative;
+float:left;
+width:20%;
+height:20%;
+}
+#menu4{
+#background-image: url('../image/Motyw_cz/menu.png') ;
+background-size:100% 100%;
+position:relative;
+float:left;
+width:20%;
+height:20%;
+}
+#menu5{
+#background-image: url('../image/Motyw_cz/menu.png') ;
+background-size:100% 100%;
+position:relative;
+float:left;
+width:20%;
+height:20%;
+}
+#stopka{
+#background-image: url('../image/Motyw_cz/stopka.png') ;
+background-size:100% 100%;
+position:relative;
+float:left;
+width:100%;
+height:10%;
 }
