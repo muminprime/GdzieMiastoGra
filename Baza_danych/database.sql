@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Czas generowania: 01 Kwi 2015, 20:17
+-- Czas generowania: 13 Kwi 2015, 18:42
 -- Wersja serwera: 5.6.21
 -- Wersja PHP: 5.6.3
 
@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `koncerty` (
   `wiek` varchar(30) NOT NULL,
   `dodatkowe_info` text NOT NULL,
   `id_gatunku` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Zrzut danych tabeli `koncerty`
@@ -76,7 +76,8 @@ INSERT INTO `koncerty` (`id_koncertu`, `nazwa_zespolu`, `logo_zespolu`, `gatunek
 (2, 'Zespol2', 'Logo2', 'Jazz', 'Futurysta', 'Polietchniki 10', '2015-04-05 21:30:00', 0, 'od 21 lat', 'Pod koniec koncertu bedzie male jam sassion - kazdy chetny, kto wezmie wlasny instrument bedzie mogl dolaczyc do muzykow.', 0),
 (3, 'Zespol3', 'Logo3', 'Poezja spiewana', 'Biblioteka', 'Kosciuszki 999', '2015-04-20 20:00:00', 0, 'Brak ograniczen', '', 0),
 (4, 'Zespol4', 'Logo4', 'Poprock', 'Stereo Kroggs', 'Zielona 100', '2015-05-01 19:00:00', 20, 'Brak ograniczen', '', 0),
-(5, 'Zespol5', 'Logo5', 'Szanty', 'Keja pub', 'Lakowa 18', '2015-05-05 19:00:00', 5, 'od 18 lat', '', 0);
+(5, 'Zespol5', 'Logo5', 'Szanty', 'Keja pub', 'Lakowa 18', '2015-05-05 19:00:00', 5, 'od 18 lat', '', 0),
+(6, 'Bleble', 'jakies_logo', 'Rock', 'Wytwornia', 'Lakowa 18', '2015-05-01 20:00:00', 0, 'Brak', '', 6);
 
 --
 -- Indeksy dla zrzutów tabel
@@ -107,7 +108,7 @@ MODIFY `id_gatunku` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 -- AUTO_INCREMENT dla tabeli `koncerty`
 --
 ALTER TABLE `koncerty`
-MODIFY `id_koncertu` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `id_koncertu` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
