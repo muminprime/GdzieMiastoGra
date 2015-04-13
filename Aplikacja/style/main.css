@@ -1,65 +1,66 @@
 body{
 margin:0px;
 padding:0px;
-#height:800px;
+width:100%;
+height:100%;
 }
 #logo{
 #background-image: url('../image/Motyw_cz/logo.png') ;
 background-size:100% 100%;
 position:relative;
 float:left;
-width:20%;
-height:20%;
+width:22.5%;
+height:22.5%;
 }
 #tytul{
 position:relative;
 #background-image: url('../image/Motyw_cz/tytul.png') ;
 background-size:100% 100%;
 float:left;
-width:80%;
-height:20%;
+width:77.5%;
+height:22.5%;
 }
 #kra_filtr{
 position:relative;
 background-size:100% 100%;
 float:left;
-width:23.8%;
-height:6%;
+width:26%;
+height:7%;
 }
 #kra_scena{
 position:relative;
 background-size:100% 100%;
 float:left;
-width:52.4%;
-height:6%;
+width:48.0%;
+height:7%;
 }
 #kra_user{
 position:relative;
 background-size:100% 100%;
 float:left;
-width:23.8%;
-height:6%;
+width:26%;
+height:7%;
 }
 #sekcja_filtrow{
 #background-image: url('../image/tlo_nie/filtry.png') ;
 background-size:100% 100%;
 position:relative;
 float:left;
-width:20.475%;
-height:80%;
+width:22.475%;
+height:88%;
 }
 #kra_lew{
 position:relative;
 background-size:100% 100%;
 float:left;
-height:80%;
+height:88%;
 width:3.6%;
 }
 #kra_pra{
 position:relative;
 background-size:100% 100%;
 float:left;
-height:80%;
+height:88%;
 width:3.6%;
 }
 #uzytkownik{
@@ -67,8 +68,8 @@ width:3.6%;
 background-size:100% 100%;
 position:relative;
 float:left;
-width:20.475%;
-height:80%;
+width:22.475%;
+height:88%;
 }
 
 #scena_do_pojawiania{
@@ -76,65 +77,12 @@ height:80%;
 background-size:100% 100%;
 position:relative;
 float:left;
-width:51.85%;
-height:80%;
+width:47.85%;
+height:88%;
 #border: 2px solid red;
 margin:0px;
 }
-#scena{
-display:none;
-#background-image: url('../image/tlo_nie/scena.png') ;
-#background-size:100% 100%;
-position:relative;
-width:98%;
-margin-left:5px;
-height:98%;
-margin-top:5px;
-overflow-y: auto;
-}
-#koncert{
-position:relative;
-width:90%;
-height:5cm;
-background-color:white;
-#border:2px solid red;
-margin-left:5%;
-margin-top:2%;
-margin-bottom:2%;
-}
-#koncert_logo{
-position:relative;
-float:left;
-background-color:gray;
-width:15%;
-height:100%;
-}
-#koncert_nazwa{
-text-align:center;
-font-size:1cm;
-position:relative;
-float:left;
-#background-color:yellow;
-width:85%;
-height:30%;
-}
-#koncert_lewe_dane{
-font-size:130%;
-padding-left:2%;
-position:relative;
-float:left;
-#background-color:blue;
-width:39%;
-height:70%;
-}
-#koncert_prawe_dane{
-font-size:130%;
-position:relative;
-float:left;
-#background-color:green;
-width:41%;
-height:70%;
-}
+
 #menu1{
 #background-image: url('../image/Motyw_cz/menu.png') ;
 background-size:100% 100%;

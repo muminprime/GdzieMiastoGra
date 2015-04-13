@@ -1,0 +1,65 @@
+@font-face
+{
+font-family: KaushanScript-Regular;
+src:url(../font/KaushanScript-Regular.otf);
+}
+#scena{
+display:none;
+#background-image: url('../image/tlo_nie/scena.png') ;
+#background-size:100% 100%;
+position:relative;
+width:98%;
+margin-left:5px;
+height:98%;
+margin-top:5px;
+overflow-y: auto;
+scrollbar-base-color: rgba(247, 125, 9, 0.0);
+scrollbar-darkshadow-color: red;
+scrollbar-3dlight-color: red;
+scrollbar-highlight-color: red;
+scrollbar-shadow-color: red;
+scrollbar-arrow-color: red;
+scrollbar-track-color: rgba(247, 176, 9, 0.5);
+}
+#koncert{
+position:relative;
+font-family:KaushanScript-Regular;
+height:25%;
+background: rgba(247, 125, 9, 0.85);
+border:2px solid red;
+border-radius:20px;
+margin-top:2%;
+margin-right:10px;
+margin-bottom:2%;
+}
+#koncert_logo{
+position:relative;
+float:left;
+width:22%;
+height:80%;
+}
+#koncert_nazwa{
+position:relative;
+font-size:2em;
+float:left;
+#background-color:yellow;
+width:78%;
+height:30%;
+}
+#koncert_lewe_dane{
+position:relative;
+float:left;
+font-size:1.2em;
+#background-color:blue;
+width:39%;
+height:70%;
+}
+#koncert_prawe_dane{
+
+position:relative;
+float:left;
+font-size:1.2em;
+#background-color:green;
+width:39%;
+height:70%;
+}

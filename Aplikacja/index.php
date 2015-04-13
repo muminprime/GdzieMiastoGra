@@ -1,12 +1,11 @@
-<html>
+<html id="main" style="font-size:10px;">
 <head>
-<?php include 'config.php';
-$cos="tlo_nie"; ?> 
+<?php include 'config.php';?> 
 <link rel="Stylesheet" type="text/css" href="style/main.css" />
+<link rel="Stylesheet" type="text/css" href="style/scena.css" />
 <script type="text/javascript" src="jquery.js"></script>
 
 <script type="text/javascript">
-	var motyw="Motyw_cz";
 	function get(){
 		$('#scena').hide();
 		$.post('data.php', {}, 
@@ -14,7 +13,20 @@ $cos="tlo_nie"; ?>
 				$('#scena').html(output).fadeIn(1000);
 			});
 	}
-
+	resizetekst = function() {
+		var szerokosc = document.body.clientWidth;
+		var wspolczennik = 100;
+		czcionka= szerokosc/wspolczennik;
+		czcionka = czcionka.toString();
+		document.body.style.fontSize = czcionka;		
+	} 
+    window.onload = function() {
+		resizetekst();
+	}; 
+	window.onresize = function(){
+		resizetekst();
+		
+	}
 </script>
 
 </head>
