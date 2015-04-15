@@ -3,7 +3,18 @@
 	#$name = mysql_real_escape_string($_POST['name']);
 	#$szerokosc = $_POST['name'];
 	
-	$wynik = mysql_query("SELECT * FROM database.koncerty ");
+	$wynik = mysql_query("SELECT 	koncerty.id as 'id koncertu', 
+																koncerty.data_godzina as 'data_godzina', 
+																zespoly.nazwa as 'nazwa_zespolu', 
+																lokale.nazwa as 'nazwa_lokalu',
+																gatunki.nazwa as 'gatunek',
+																lokale.adres as 'adres_lokalu',
+																koncerty.cena,
+																koncerty.wiek
+												FROM database.koncerty, database.zespoly, database.lokale, database.gatunki 
+												WHERE koncerty.zespoly_id=zespoly.id 
+												AND koncerty.lokale_id=lokale.id 
+												AND zespoly.gatunki_id=gatunki.id");
 	$wynik_num_rows = mysql_num_rows($wynik);
 		
 	if($wynik_num_rows==0)
