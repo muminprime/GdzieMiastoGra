@@ -3,6 +3,31 @@
 	#$name = mysql_real_escape_string($_POST['name']);
 	#$szerokosc = $_POST['name'];
 	
+	
+	
+	//ponizszy blok trzeba skopiowac dla wszystkich mozliwosci filtrowania (kluby, zespoly, daty itp)
+	$gatunki = mysql_query("SELECT 	gatunki.id as 'id', gatunki.nazwa as 'nazwa_gatunku'
+																		FROM		database.gatunki");
+	$gatunki_num_rows = mysql_num_rows($gatunki);
+	if($gatunki_num_rows==0)
+		echo "Nie ma zadnych gatunkow";
+	else
+	{ // w ponizszej tabeli bedziemy przechowywac nazwy gatunkow i wartosc true/false
+		$gatunki_ar = array(); //stworz tablice na gatunki
+		while($data=mysql_fetch_assoc($gatunki))
+			$gatunki_ar[] = array($data['nazwa_gatunku'],false); // dodaj do tablicy mala tablice, ktora bedzie przechowywac nazwe gatunku i wartosc true/false (domyslnie false, true gdy uzytkownik wybierze ten gatunek podczas filtrowania wynikow)
+	}
+	//tak wyznaczamy dlugosc tablicy i odwolujemy sie do jej elementow
+	echo "Gatunkow jest ".count($gatunki_ar).", a trzeci z nich to: ".$gatunki_ar[2][0]; // pierwszy indeks to kolejny numer gatunku, drugi indeks to nazwa gatunku: [0], albo wartosc true/false: [1]
+	echo " .Gatunek ten ma przypisana wartosc: ".$gatunki_ar[2][1];
+	// na podstawie $gatunki_ar mozna automatycznie zrobic liste checkboxow
+	// filtr trzeba zrobic tak, zeby zaznaczenie danej opcji po prostu zmienialo wartosc true/false danej pozycji
+	// pozniej zrobie funkcje, ktora posprawdza gdzie jest true i na tej podstawie bede generowac zapytanie sql
+	
+	
+	
+	
+	
 	$wynik = mysql_query("SELECT 	koncerty.id as 'id koncertu', 
 																koncerty.data_godzina as 'data_godzina', 
 																zespoly.nazwa as 'nazwa_zespolu', 
