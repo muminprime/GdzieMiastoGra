@@ -3,6 +3,10 @@
 font-family: KaushanScript-Regular;
 src:url(../font/KaushanScript-Regular.otf);
 }
+a {
+text-decoration: none;
+color:black;
+}
 #scena{
 display:none;
 #background-image: url('../image/tlo_nie/scena.png') ;

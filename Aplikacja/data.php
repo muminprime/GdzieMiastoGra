@@ -4,7 +4,7 @@
 	#$szerokosc = $_POST['name'];
 	
 	
-	
+	/*
 	//ponizszy blok trzeba skopiowac dla wszystkich mozliwosci filtrowania (kluby, zespoly, daty itp)
 	$gatunki = mysql_query("SELECT 	gatunki.id as 'id', gatunki.nazwa as 'nazwa_gatunku'
 																		FROM		database.gatunki");
@@ -24,7 +24,7 @@
 	// filtr trzeba zrobic tak, zeby zaznaczenie danej opcji po prostu zmienialo wartosc true/false danej pozycji
 	// pozniej zrobie funkcje, ktora posprawdza gdzie jest true i na tej podstawie bede generowac zapytanie sql
 	
-	
+	*/
 	
 	
 	
@@ -52,9 +52,11 @@
 		<img src=\"image/inne/logo.png\" style=\"width:80%; height:95%; border: 2px solid red;margin-top:10%;margin-left:10%;\">
 		</div>
 		<div id=\"koncert_nazwa\">
-		<img src=\"image/inne/glosnosc_lewa.png\" style=\"margin-left:20%;width:10%; height:65%;\">
+		<center>
+		<img src=\"image/inne/glosnosc_lewa.png\" style=\"width:10%; height:65%;\">
 		".$data['nazwa_zespolu']."
 		<img src=\"image/inne/glosnosc_prawa.png\" style=\"width:10%; height:65%;\">
+		</center>
 		</div>
 		<div id=\"koncert_lewe_dane\">
 		<img src=\"image/inne/nuta_osemka.png\" style=\"width:10%; height:15%;\">
