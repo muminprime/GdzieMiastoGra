@@ -18,6 +18,14 @@
 			});
 		//save_change("","","");
 	}
+	function perform_filtering(){
+		$('#scena').hide();
+		$.post('filtruj.php', {'array1[]':gatunki_array, 'array2[]':zespoly_array, 'array3[]':lokale_array}, //przekazujemy do pliku filtruj.php rozne tablice
+			function(output) {
+				$('#scena').html(output).fadeIn(1000);
+			});
+	}
+	
 	function build_filtr_gatunek(gatunek){
 		$.post('build_filtr_gatunek.php', {gatunek: gatunek}, // drugie slowko gatunek odpowiada parametrowi powyzej w nawiasach(), pierwsze to inna zmienna: do niej zostaje przypisana wartosc tej drugiej i pod ta nazwa jest przekazywane do pliku php metoda post
 			function(output) {
@@ -29,7 +37,8 @@
 			function(output) {
 				$('#opcje_filtra_klubu').html(output).show();
 			});
-	}function build_filtr_zespoly(zespoly){
+	}
+	function build_filtr_zespoly(zespoly){
 		$.post('build_filtr_zespoly.php', {zespol: zespoly}, 
 			function(output) {
 				$('#opcje_filtra_zespoly').html(output).show();
@@ -129,7 +138,7 @@
 <div id="sekcja_filtrow" style="background-image: url('../image/<?php echo "$tlo";?>/filtry.png');">
 	<div id="tlo_filtr">
 		<div id="button_szukaj">
-		<a href="javascript:get()">
+		<a href="javascript:perform_filtering()">
 		<img src="image/inne/przycisk_szukaj.png" style="width:90%; height:65%;">
 		</a>
 		</div>

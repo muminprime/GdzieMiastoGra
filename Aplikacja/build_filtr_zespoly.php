@@ -47,13 +47,13 @@
 		}
 	}
 	
-	foreach($zespoly_array as $lokal )
+	foreach($zespoly_array as $zespol )
 	{
-		if($lokal[1]=="0")
+		if($zespol[1]=="0")
 		{
 			echo
 			"
-			<a onclick=\"save_change('','','".$lokal[0]."');\">
+			<a onclick=\"save_change('','','".$zespol[0]."');\">
 			<img src=\"image/inne/checkbox_off.png\" style=\"width:8%; height:1em;\">
 			</a>";
 			
@@ -61,13 +61,13 @@
 		else
 		{
 			echo
-			"<a onclick=\"save_change('','','".$lokal[0]."');\">
+			"<a onclick=\"save_change('','','".$zespol[0]."');\">
 			<img src=\"image/inne/checkbox_on.png\" style=\"width:8%; height:1em;\">
 			</a>";
 		}
 			
 		echo
-		$lokal[0].
+		$zespol[0].
 		"</br>";
 	}
 	
