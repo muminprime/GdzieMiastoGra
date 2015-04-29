@@ -19,7 +19,7 @@
 		//save_change("","","");
 	}
 	function build_filtr_gatunek(gatunek){
-		$.post('build_filtr_gatunek.php', {gatunek: gatunek}, 
+		$.post('build_filtr_gatunek.php', {gatunek: gatunek}, // drugie slowko gatunek odpowiada parametrowi powyzej w nawiasach(), pierwsze to inna zmienna: do niej zostaje przypisana wartosc tej drugiej i pod ta nazwa jest przekazywane do pliku php metoda post
 			function(output) {
 				$('#opcje_filtra_gatunek').html(output).show();
 			});
