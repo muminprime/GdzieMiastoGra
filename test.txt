@@ -1,9 +1,0 @@
-<<<<<<< HEAD
-czesssadads
-fff
-sclacls
-adcscads
-=======
-cze
-fff
->>>>>>> origin/master
