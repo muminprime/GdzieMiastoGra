@@ -19,6 +19,7 @@
 	// BLOK WYKONAWCZY DLA GATUNKOW
 	$gatunki_array_przek = $_POST['array1']; // zapisujemy sobie pod ta zmienna tablice przekazana z pliku index.php
 	//$nazwa = $gatunki_array_przek[0][0]; // tutaj zamiast nazwy gatunku z [n][0] pozycji tablicy zwraca nam tylko pierwsza litere nazwy...
+	//echo $gatunki_array_przek[0][0];
 	// generalnie nie da sie tak po prostu przekazac tablicy wielowymiarowej do php...
 	$gatunki_array_php = array();
 	foreach ($gatunki_array_przek as $x) { //poniewaz php sobie skleil tablice dwuwymiarowa w taki sposob, ze jest to teraz tablica jednowymiarowa i pod kazdym indeksem jest "nazwa_gatunku,liczba"

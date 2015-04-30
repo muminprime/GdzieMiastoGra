@@ -20,7 +20,7 @@
 	}
 	function perform_filtering(){
 		$('#scena').hide();
-		$.post('filtruj.php', {'array1[]':gatunki_array, 'array2[]':zespoly_array, 'array3[]':lokale_array}, //przekazujemy do pliku filtruj.php rozne tablice
+		$.post('filtruj.php', {'array1[]':gatunki_array,'array2[]': zespoly_array, 'array3[]':lokale_array}, //przekazujemy do pliku filtruj.php rozne tablice
 			function(output) {
 				$('#scena').html(output).fadeIn(1000);
 			});
