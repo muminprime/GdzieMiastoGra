@@ -132,9 +132,9 @@
 
 <div id="logo" style="background-image: url('../image/<?php echo "$motyw";?>/logo.png');" ></div>
 <div id="tytul" style="background-image: url('../image/<?php echo "$motyw";?>/tytul.png');" ></div>
-<div id="kra_filtr" style="background-image: url('../image/<?php echo "$tlo";?>/kra_filtr.png');" ></div>
-<div id="kra_scena" style="background-image: url('../image/<?php echo "$tlo";?>/kra_scena.png');" ></div>
-<div id="kra_user" style="background-image: url('../image/<?php echo "$tlo";?>/kra_user.png');" ></div>
+<div id="kra_filtr"  ></div>
+<div id="kra_scena"  ></div>
+<div id="kra_user"  ></div>
 <div id="sekcja_filtrow" style="background-image: url('../image/<?php echo "$tlo";?>/filtry.png');">
 	<div id="tlo_filtr">
 		<div id="button_szukaj">
@@ -162,12 +162,12 @@
 		</div>
 	</div>
 </div>
-<div id="kra_lew" style="background-image: url('../image/<?php echo "$tlo";?>/kra_lew.png');"></div>
+<div id="kra_lew" ></div>
 <div id="scena_do_pojawiania" style="background-image: url('../image/<?php echo "$tlo";?>/scena.png');">
 	<div id="scena" >
 	</div>
 </div>
-<div id="kra_pra" style="background-image: url('../image/<?php echo "$tlo";?>/kra_pra.png');"></div>
+<div id="kra_pra" ></div>
 <div id="uzytkownik" style="background-image: url('../image/<?php echo "$tlo";?>/panel_user.png');"></div>
 <div id="menu1" style="background-image: url('../image/<?php echo "$motyw";?>/menu1.png');"></div>
 <div id="menu2" style="background-image: url('../image/<?php echo "$motyw";?>/menu2.png');"></div>

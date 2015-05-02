@@ -22,6 +22,7 @@ height:22.5%;
 }
 #kra_filtr{
 position:relative;
+background-image: url('../image/kratownica/kra_filtr.png');
 background-size:100% 100%;
 float:left;
 width:26%;
@@ -29,6 +30,7 @@ height:7%;
 }
 #kra_scena{
 position:relative;
+background-image: url('../image/kratownica/kra_scena.png');
 background-size:100% 100%;
 float:left;
 width:48.0%;
@@ -36,6 +38,7 @@ height:7%;
 }
 #kra_user{
 position:relative;
+background-image: url('../image/kratownica/kra_user.png');
 background-size:100% 100%;
 float:left;
 width:26%;
@@ -46,11 +49,18 @@ height:7%;
 background-size:100% 100%;
 position:relative;
 float:left;
-width:22.475%;
-height:88%;
+border-right-width: 4px;
+border-right-style:solid;
+border-right-color:black;
+border-top-width:4px;
+border-top-style:solid;
+border-top-color:black;
+width:calc(22.475% - 4px);
+height:calc(88% - 4px);
 }
 #kra_lew{
 position:relative;
+background-image: url('../image/kratownica/kra_lew.png');
 background-size:100% 100%;
 float:left;
 height:88%;
@@ -58,6 +68,7 @@ width:3.6%;
 }
 #kra_pra{
 position:relative;
+background-image: url('../image/kratownica/kra_pra.png');
 background-size:100% 100%;
 float:left;
 height:88%;
@@ -65,21 +76,36 @@ width:3.6%;
 }
 #uzytkownik{
 #background-image: url('../image/tlo_nie/panel_user.png') ;
+#border: 2px solid red;
+border-left-width: 4px;
+border-left-style:solid;
+border-left-color:black;
+border-top-width:4px;
+border-top-style:solid;
+border-top-color:black;
 background-size:100% 100%;
 position:relative;
 float:left;
-width:22.475%;
-height:88%;
+width:calc(22.475% - 4px);
+height:calc(88% - 4px);
 }
 
 #scena_do_pojawiania{
 #background-image: url('../image/tlo_nie/scena.png') ;
 background-size:100% 100%;
+border-left-width: 4px;
+border-left-style:solid;
+border-left-color:black;
+border-right-width: 4px;
+border-right-style:solid;
+border-right-color:black;
+border-top-width: 4px;
+border-top-style:solid;
+border-top-color:black;
 position:relative;
 float:left;
-width:47.85%;
-height:88%;
-#border: 2px solid red;
+width:calc(47.85% - 8px);
+height:calc(88% - 4px);
 margin:0px;
 }
 
