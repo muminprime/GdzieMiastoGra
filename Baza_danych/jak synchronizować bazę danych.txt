@@ -1,0 +1,19 @@
+Pobieranie bazy danych:
+
+1. Zsynchronizuj repozytorium.
+2. W phpMyAdmin wybierz nasz¹ bazê danych (database).
+3. Kliknij "Operacje".
+4. Kliknij "Usuñ bazê danych (DROP)".
+5. Czasem wyskakuje jakiœ b³¹d, ¿e niby nie mo¿na usun¹æ, ale wtedy zazwyczaj usuwa siê wszystko z bazy danych poza sam¹ baz¹.
+6. Jeœli b³êdu nie ma, to ca³a baza siê usunie, wiêc stwórz now¹ pust¹ bazê o takiej samej nazwie. Jeœli b³¹d jest, to zignoruj go.
+7. Lliknij na bazê a nastêpnie na "Import".
+8. Wybierz plik z nasz¹ baz¹ danych (database). Nie zmieniaj ¿adnych ustawieñ.
+9. Kliknij "Wykonaj" i powinno dzia³aæ.
+
+
+Wysy³anie bazy danych:
+1. Po dokonaniu zmian w bazie kliknij Eksport w phpMyAdmin.
+2. Nie zmieniaj ustawieñ i kliknij "Wykonaj".
+3. Plik nazwij tak, jak nazywa siê baza (database) i wrzuæ go do folderu z repozytorium GdzieMiastoGra\Baza_danych.
+4. Zacommituj zmiany.
+5. I ju¿.
