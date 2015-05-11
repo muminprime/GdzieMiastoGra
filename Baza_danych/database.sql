@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Czas generowania: 16 Kwi 2015, 00:35
+-- Czas generowania: 11 Maj 2015, 23:49
 -- Wersja serwera: 5.6.21
 -- Wersja PHP: 5.6.3
 
@@ -36,6 +36,7 @@ CREATE TABLE IF NOT EXISTS `gatunki` (
 --
 
 INSERT INTO `gatunki` (`id`, `nazwa`) VALUES
+(0, ' '),
 (1, 'Blues'),
 (2, 'Pop'),
 (3, 'Rock'),
@@ -139,20 +140,23 @@ CREATE TABLE IF NOT EXISTS `zespoly` (
   `sklad` varchar(200) NOT NULL,
   `opis` varchar(400) NOT NULL,
   `logo` varchar(50) NOT NULL,
-  `gatunki_id` int(11) NOT NULL,
-  `kontakty_id` int(11) NOT NULL
+  `kontakty_id` int(11) NOT NULL,
+  `gatunki_id1` int(11) NOT NULL,
+  `gatunki_id2` int(11) DEFAULT '0',
+  `gatunki_id3` int(11) DEFAULT '0',
+  `gatunki` varchar(100) DEFAULT 'brak' COMMENT 'To pole zostawiamy puste. Jest nam potrzebne do zebrania ewentualnych trzech wybranych gatunków w jednym rekordzie, co dzieje się w kodzie php podczas wyświetlania.'
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Zrzut danych tabeli `zespoly`
 --
 
-INSERT INTO `zespoly` (`id`, `nazwa`, `sklad`, `opis`, `logo`, `gatunki_id`, `kontakty_id`) VALUES
-(1, 'Ich Troje', 'Michal Wilniewski, Jacek Solywa, Marta Milan', 'Enej to polski zespl z ukrainskimi korzeniami.', '', 2, 0),
-(2, 'InoRos', 'Kamil Kowalcze, Lukasz Bodura, Mateusz Janiczak, Piotr Moskala, Pawel Kowara, Rafal Nowak', 'Zespol powstal w 2006 roku, by tworzyc muzyke zainspirowana folklorem podhalanskim oraz muzyka folkowa z pasma Karpat.', '', 11, 0),
-(3, 'Framerowie', 'Zofia Szumer, Zbigniewa Frankiewicza', 'Framerowie – duet wokalny utworzony przez Zofie Szumer i Zbigniewa Frankiewicza w Lodzi (pseudonim estradowy duetu powstal z ich nazwisk)', '', 4, 0),
-(4, 'Atrakcyjny Kazimierz', 'Jacek Bryndal', 'Atrakcyjny Kazimierz (rowniez Atrakcyjny Kazimierz i Cyganie oraz Atrakcyjny Kazimierz i zespol Wisnie) – polski zespol muzyczny zalozony w 1992 roku w Toruniu przez znanego z wystepow w zespole Kobranocka, torunskiego muzyka Jacka Bryndala.', '', 6, 0),
-(5, 'Balkan Electrique', 'Violetta Najdenowicz, Slawomir Starosta', 'Balkan Electrique – polska grupa muzyczna grajaca muzyke pop wzbogacona elementami muzyki balkanskiej, byl to duet wokalno-instrumentalny.', '', 2, 0);
+INSERT INTO `zespoly` (`id`, `nazwa`, `sklad`, `opis`, `logo`, `kontakty_id`, `gatunki_id1`, `gatunki_id2`, `gatunki_id3`, `gatunki`) VALUES
+(1, 'Ich Troje', 'Michal Wilniewski, Jacek Solywa, Marta Milan', 'Enej to polski zespl z ukrainskimi korzeniami.', '', 0, 2, 0, 1, ' Blues, Pop'),
+(2, 'InoRos', 'Kamil Kowalcze, Lukasz Bodura, Mateusz Janiczak, Piotr Moskala, Pawel Kowara, Rafal Nowak', 'Zespol powstal w 2006 roku, by tworzyc muzyke zainspirowana folklorem podhalanskim oraz muzyka folkowa z pasma Karpat.', '', 0, 11, 0, 0, ' Folk'),
+(3, 'Framerowie', 'Zofia Szumer, Zbigniewa Frankiewicza', 'Framerowie – duet wokalny utworzony przez Zofie Szumer i Zbigniewa Frankiewicza w Lodzi (pseudonim estradowy duetu powstal z ich nazwisk)', '', 0, 4, 0, 0, ' PopRock'),
+(4, 'Atrakcyjny Kazimierz', 'Jacek Bryndal', 'Atrakcyjny Kazimierz (rowniez Atrakcyjny Kazimierz i Cyganie oraz Atrakcyjny Kazimierz i zespol Wisnie) – polski zespol muzyczny zalozony w 1992 roku w Toruniu przez znanego z wystepow w zespole Kobranocka, torunskiego muzyka Jacka Bryndala.', '', 0, 6, 0, 0, ' Poezja spiewana'),
+(5, 'Balkan Electrique', 'Violetta Najdenowicz, Slawomir Starosta', 'Balkan Electrique – polska grupa muzyczna grajaca muzyke pop wzbogacona elementami muzyki balkanskiej, byl to duet wokalno-instrumentalny.', '', 0, 2, 0, 0, ' Pop');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -186,7 +190,7 @@ ALTER TABLE `lokale`
 -- Indexes for table `zespoly`
 --
 ALTER TABLE `zespoly`
- ADD PRIMARY KEY (`id`), ADD KEY `fk_zespoly_gatunki_idx` (`gatunki_id`), ADD KEY `fk_zespoly_kontakty1_idx` (`kontakty_id`);
+ ADD PRIMARY KEY (`id`), ADD KEY `fk_zespoly_gatunki_idx` (`gatunki_id1`), ADD KEY `fk_zespoly_kontakty1_idx` (`kontakty_id`), ADD KEY `fk_zespoly_gatunki2_idx` (`gatunki_id2`), ADD KEY `fk_zespoly_gatunki3_idx` (`gatunki_id3`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -228,7 +232,9 @@ ADD CONSTRAINT `fk_lokale_kontakty1` FOREIGN KEY (`kontakty_id`) REFERENCES `kon
 -- Ograniczenia dla tabeli `zespoly`
 --
 ALTER TABLE `zespoly`
-ADD CONSTRAINT `fk_zespoly_gatunki` FOREIGN KEY (`gatunki_id`) REFERENCES `gatunki` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+ADD CONSTRAINT `fk_zespoly_gatunki1` FOREIGN KEY (`gatunki_id1`) REFERENCES `gatunki` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+ADD CONSTRAINT `fk_zespoly_gatunki2` FOREIGN KEY (`gatunki_id2`) REFERENCES `gatunki` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+ADD CONSTRAINT `fk_zespoly_gatunki3` FOREIGN KEY (`gatunki_id3`) REFERENCES `gatunki` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
 ADD CONSTRAINT `fk_zespoly_kontakty1` FOREIGN KEY (`kontakty_id`) REFERENCES `kontakty` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
