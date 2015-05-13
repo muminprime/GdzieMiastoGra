@@ -5,35 +5,27 @@
 																koncerty.data_godzina as 'data_godzina', 
 																zespoly.nazwa as 'nazwa_zespolu', 
 																lokale.nazwa as 'nazwa_lokalu',
-																gatunki.nazwa as 'gatunek',
+																zespoly.gatunki as 'gatunek',
 																lokale.adres as 'adres_lokalu',
 																koncerty.cena,
 																koncerty.wiek
-												FROM database.koncerty, database.zespoly, database.lokale, database.gatunki 
+												FROM database.koncerty, database.zespoly, database.lokale
 												WHERE koncerty.zespoly_id=zespoly.id 
-												AND koncerty.lokale_id=lokale.id 
-												AND zespoly.gatunki_id=gatunki.id";
+												AND koncerty.lokale_id=lokale.id";
 	
 	
 	
 	// BLOK WYKONAWCZY DLA GATUNKOW
-	$gatunki_array_przek = $_POST['array1']; // zapisujemy sobie pod ta zmienna tablice przekazana z pliku index.php
-	//$nazwa = $gatunki_array_przek[0][0]; // tutaj zamiast nazwy gatunku z [n][0] pozycji tablicy zwraca nam tylko pierwsza litere nazwy...
-	//echo $gatunki_array_przek[0][0];
-	// generalnie nie da sie tak po prostu przekazac tablicy wielowymiarowej do php...
-	$gatunki_array_php = array();
-	foreach ($gatunki_array_przek as $x) { //poniewaz php sobie skleil tablice dwuwymiarowa w taki sposob, ze jest to teraz tablica jednowymiarowa i pod kazdym indeksem jest "nazwa_gatunku,liczba"
-	// czyli jak my sie spodziewamy np w gatunki_array_przek[0][0] miec "Blues" a w gatunki_array_przek[0][1] miec "0", to tak nie bedzie, ale za to w gatunki_array_przek[0] bedzie "Blues,0"
-		$gatunki_array_php [] = explode(",", $x); // stad ta petla...ale trzeba to zmienic, bo co jesli w nazwie gatunku/zespolu beda przecinki????
-	}
+
+	$gatunki_array = $_POST['gatunki_array']; // zapisujemy sobie pod ta zmienna tablice przekazana z pliku index.php
 	$licznik = 0;
-	foreach ($gatunki_array_php as $g) { // dla wszystkich agtunkow
+	foreach ($gatunki_array as $g) { // dla wszystkich agtunkow
 		if ($g[1] == "1"){ // jesli dany gatunek zostal wybrany
 			$licznik += 1; 
 			if ($licznik==1)  // jesli to pierwszy wybor, to:
-					$zapytanie .= " AND (gatunki.nazwa=\"".$g[0]."\"";
+					$zapytanie .= " AND (zespoly.gatunki LIKE \"%".$g[0]."%\""; // UWAGA, TO JEST NIE DO KONCA DOBRE!! Użycie LIKE w takiej formie prowadzi do tego, że np. jak mamy 2 gatunki: Pop i PopRock, to LIKE "%Pop%" będzie pasować również do PopRock! Żeby to było ładnie, trzeba po prostu porównywać każdy gatunek z trzech możliwych dla zespołu...ale do tego trzeba zmodyfikować główne zapytanie, to tutaj bardziej skomplikować a i najprawdopodobniej w ogóle zmienić kształt gatunki_array...
 			else if ($licznik > 1) // jesli to kolejny wybor, to:
-					$zapytanie .= " OR gatunki.nazwa=\"".$g[0]."\"";
+					$zapytanie .= " OR zespoly.gatunki LIKE \"%".$g[0]."%\"";
 		}
 	}
 	if ($licznik > 0) // jesli byl jakis wybor, to niezaleznie od ilosci wyborow, zakoncz zapytanie nawiasem
@@ -41,43 +33,34 @@
 	
 	
 	// BLOK WYKONAWCZY DLA ZESPOLOW
-	$zespoly_array_przek = $_POST['array2']; // analogicznie jak poprzednio, to trzeba bedzie zmienic
-	$zespoly_array_php = array();
-	foreach ($zespoly_array_przek as $x) {
-		$zespoly_array_php [] = explode(",", $x); 
-	}
+	$zespoly_array = $_POST['zespoly_array']; // przechwytujemy całą 2-wymiarową tablicę z index.php
 	$licznik = 0;
-	foreach ($zespoly_array_php as $g) { 
-		if ($g[1] == "1"){ 
+	foreach ($zespoly_array as $z) { 
+		if ($z[1] == "1"){ // jeśli dany zespół został zaznaczony...
 			$licznik += 1; 
 			if ($licznik==1)  
-					$zapytanie .= " AND (zespoly.nazwa=\"".$g[0]."\"";
+				$zapytanie .= " AND (zespoly.nazwa=\"".$z[0]."\"";
 			else if ($licznik > 1) 
-					$zapytanie .= " OR zespoly.nazwa=\"".$g[0]."\"";
+				$zapytanie .= " OR zespoly.nazwa=\"".$z[0]."\"";
 		}
 	}
-	if ($licznik > 0) // jesli byl jakis wybor, to niezaleznie od ilosci wyborow, zakoncz zapytanie nawiasem
+	if ($licznik > 0) // jeśli był jakiś wybór, to niezależnie od ilości wyborów, zakończ zapytanie nawiasem
 		$zapytanie .= ")";
 	
 	
-	
 	// BLOK WYKONAWCZY DLA LOKALI
-	$lokale_array_przek = $_POST['array3']; // analogicznie jak poprzednio, to trzeba bedzie zmienic
-	$lokale_array_php = array();
-	foreach ($lokale_array_przek as $x) {
-		$lokale_array_php [] = explode(",", $x); 
-	}
+	$lokale_array = $_POST['lokale_array']; // analogicznie jak dla zespołów
 	$licznik = 0;
-	foreach ($lokale_array_php as $g) { 
-		if ($g[1] == "1"){ 
+	foreach ($lokale_array as $l) { 
+		if ($l[1] == "1"){ 
 			$licznik += 1; 
 			if ($licznik==1)  
-					$zapytanie .= " AND (lokale.nazwa=\"".$g[0]."\"";
+					$zapytanie .= " AND (lokale.nazwa=\"".$l[0]."\"";
 			else if ($licznik > 1) 
-					$zapytanie .= " OR lokale.nazwa=\"".$g[0]."\"";
+					$zapytanie .= " OR lokale.nazwa=\"".$l[0]."\"";
 		}
 	}
-	if ($licznik > 0) // jesli byl jakis wybor, to niezaleznie od ilosci wyborow, zakoncz zapytanie nawiasem
+	if ($licznik > 0) 
 		$zapytanie .= ")";
 	
 	

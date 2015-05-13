@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Czas generowania: 11 Maj 2015, 23:49
+-- Czas generowania: 13 Maj 2015, 23:20
 -- Wersja serwera: 5.6.21
 -- Wersja PHP: 5.6.3
 
@@ -36,7 +36,6 @@ CREATE TABLE IF NOT EXISTS `gatunki` (
 --
 
 INSERT INTO `gatunki` (`id`, `nazwa`) VALUES
-(0, ' '),
 (1, 'Blues'),
 (2, 'Pop'),
 (3, 'Rock'),
@@ -142,8 +141,8 @@ CREATE TABLE IF NOT EXISTS `zespoly` (
   `logo` varchar(50) NOT NULL,
   `kontakty_id` int(11) NOT NULL,
   `gatunki_id1` int(11) NOT NULL,
-  `gatunki_id2` int(11) DEFAULT '0',
-  `gatunki_id3` int(11) DEFAULT '0',
+  `gatunki_id2` int(11) DEFAULT NULL,
+  `gatunki_id3` int(11) DEFAULT NULL,
   `gatunki` varchar(100) DEFAULT 'brak' COMMENT 'To pole zostawiamy puste. Jest nam potrzebne do zebrania ewentualnych trzech wybranych gatunków w jednym rekordzie, co dzieje się w kodzie php podczas wyświetlania.'
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
@@ -152,11 +151,11 @@ CREATE TABLE IF NOT EXISTS `zespoly` (
 --
 
 INSERT INTO `zespoly` (`id`, `nazwa`, `sklad`, `opis`, `logo`, `kontakty_id`, `gatunki_id1`, `gatunki_id2`, `gatunki_id3`, `gatunki`) VALUES
-(1, 'Ich Troje', 'Michal Wilniewski, Jacek Solywa, Marta Milan', 'Enej to polski zespl z ukrainskimi korzeniami.', '', 0, 2, 0, 1, ' Blues, Pop'),
-(2, 'InoRos', 'Kamil Kowalcze, Lukasz Bodura, Mateusz Janiczak, Piotr Moskala, Pawel Kowara, Rafal Nowak', 'Zespol powstal w 2006 roku, by tworzyc muzyke zainspirowana folklorem podhalanskim oraz muzyka folkowa z pasma Karpat.', '', 0, 11, 0, 0, ' Folk'),
-(3, 'Framerowie', 'Zofia Szumer, Zbigniewa Frankiewicza', 'Framerowie – duet wokalny utworzony przez Zofie Szumer i Zbigniewa Frankiewicza w Lodzi (pseudonim estradowy duetu powstal z ich nazwisk)', '', 0, 4, 0, 0, ' PopRock'),
-(4, 'Atrakcyjny Kazimierz', 'Jacek Bryndal', 'Atrakcyjny Kazimierz (rowniez Atrakcyjny Kazimierz i Cyganie oraz Atrakcyjny Kazimierz i zespol Wisnie) – polski zespol muzyczny zalozony w 1992 roku w Toruniu przez znanego z wystepow w zespole Kobranocka, torunskiego muzyka Jacka Bryndala.', '', 0, 6, 0, 0, ' Poezja spiewana'),
-(5, 'Balkan Electrique', 'Violetta Najdenowicz, Slawomir Starosta', 'Balkan Electrique – polska grupa muzyczna grajaca muzyke pop wzbogacona elementami muzyki balkanskiej, byl to duet wokalno-instrumentalny.', '', 0, 2, 0, 0, ' Pop');
+(1, 'Ich Troje', 'Michal Wilniewski, Jacek Solywa, Marta Milan', 'Enej to polski zespl z ukrainskimi korzeniami.', '', 0, 2, 8, 1, 'Blues, Pop, Country'),
+(2, 'InoRos', 'Kamil Kowalcze, Lukasz Bodura, Mateusz Janiczak, Piotr Moskala, Pawel Kowara, Rafal Nowak', 'Zespol powstal w 2006 roku, by tworzyc muzyke zainspirowana folklorem podhalanskim oraz muzyka folkowa z pasma Karpat.', '', 0, 11, 0, 0, 'Folk'),
+(3, 'Framerowie', 'Zofia Szumer, Zbigniewa Frankiewicza', 'Framerowie – duet wokalny utworzony przez Zofie Szumer i Zbigniewa Frankiewicza w Lodzi (pseudonim estradowy duetu powstal z ich nazwisk)', '', 0, 4, 0, 0, 'PopRock'),
+(4, 'Atrakcyjny Kazimierz', 'Jacek Bryndal', 'Atrakcyjny Kazimierz (rowniez Atrakcyjny Kazimierz i Cyganie oraz Atrakcyjny Kazimierz i zespol Wisnie) – polski zespol muzyczny zalozony w 1992 roku w Toruniu przez znanego z wystepow w zespole Kobranocka, torunskiego muzyka Jacka Bryndala.', '', 0, 9, 0, 0, 'Jazz'),
+(5, 'Balkan Electrique', 'Violetta Najdenowicz, Slawomir Starosta', 'Balkan Electrique – polska grupa muzyczna grajaca muzyke pop wzbogacona elementami muzyki balkanskiej, byl to duet wokalno-instrumentalny.', '', 0, 3, 0, 0, 'Rock');
 
 --
 -- Indeksy dla zrzutów tabel

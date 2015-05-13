@@ -38,7 +38,6 @@
 													
 	$gatunki_num_rows = mysql_num_rows($gatunki_zespolow);
 	
-	
 	/*
 		PONIŻSZY BLOK JEST DOŚĆ SKOMPLIKOWANY, ALE DZIAŁA!
 		Chodzi o to, że z tabeli 'zespoly' pobieramy sobie dane dotyczące gatunków, które w tej tabeli są reprezentowane przez numery id z tabeli 'gatunki'. 
@@ -49,21 +48,18 @@
 	*/
 	$all_gatunki = "";
 	$zespol_poprzedni = mysql_fetch_assoc(mysql_query("SELECT zespoly.nazwa as 'zespol' FROM database.zespoly ORDER BY zespol"))['zespol']; // przypisujemy pierwszy zespol pod ta zmienna (order by musi byc takie samo, jak w zapytaniu $gatunki_zespolow)
+	$id = mysql_fetch_assoc(mysql_query("SELECT zespoly.id as 'id' FROM database.zespoly ORDER BY id"))['id'];
 	while($data=mysql_fetch_assoc($gatunki_zespolow))
 	{
-		if ((($zespol = $data['zespol']) == $zespol_poprzedni) AND ($data['gatunek'] != "")) // jeśli ciągle rozpatrujemy ten sam zespół i jednocześnie rozpatrywane pole gatunku nie jest puste
+		if (($zespol = $data['zespol']) == $zespol_poprzedni) // jeśli ciągle rozpatrujemy ten sam zespół
+			$all_gatunki .= $data['gatunek'].", "; // doklej gatunek do stringa
+		else //wejscie do else'a nastepuje, gdy juz sprawdzilismy wszystkie gatunki danego zespolu i przeskoczylismy na pierwszy rekord nastepnego zespolu - patrz $gatunki_zespolow)
 		{
-			$all_gatunki .= $data['gatunek'].", ";
-			$id = $data['id']; // potrzebne w elsie, zeby wzielo poprzednia wartosc id, a nie juz nastepna (bo wejscie do else'a nastepuje, gdy juz sprawdzilismy wszystkie gatunki danego zespolu i przeskoczylismy na pierwszy rekord nastepnego zespolu)
-		}
-		else
-		{
-			wpisz_gatunki_do_bazy($all_gatunki, $id);
+			wpisz_gatunki_do_bazy($all_gatunki, $id); // wpisujemy gatunek zespolu rozpatrywanego w poprzednim kroku petli
 			$all_gatunki = ""; // wyzeruj zmienną
-			if ($data['gatunek'] != "") // wykonujemy raz to, co w ifie, pod warunkiem ze nie jest to puste pole
-				$all_gatunki .= $data['gatunek'].", ";
-			$zespol = $data['zespol']; // niezależnie od powyższego przypisujemy obecny zespół pod zmienną
+			$all_gatunki .= $data['gatunek'].", "; // wykonujemy raz to, co w ifie
 		}	
+		$id = $data['id']; //dopiero tu przypisujemy, to wtedy dziala poprawnie: przy kolejnej iteracji, kiedy wejdziemy w else'a, to bierzemy id z poprzedniej iteracji - i tak ma byc
 		$zespol_poprzedni = $zespol;
 	}
 	// ponizej musimy dac te funkcje, bo powyzszy while jest tak skonstruowany, ze dla ostatniego wiersza $gatunki_zespolow nigdy nie wejdzie w else, czyli nigdy nie wykona wpisz_gatunki_do_bazy...tak wiec trzeba to zapewnic po wyjsciu z petli
