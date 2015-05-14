@@ -19,8 +19,10 @@
 		//save_change("","","");
 	}
 	function perform_filtering(){
+		var from_date = document.getElementById('from_date').value;
+		var to_date = document.getElementById('to_date').value;
 		$('#scena').hide();
-		$.post('filtruj.php', {gatunki_array:gatunki_array, zespoly_array: zespoly_array, lokale_array:lokale_array}, //przekazujemy do pliku filtruj.php rozne tablice
+		$.post('filtruj.php', {gatunki_array:gatunki_array, zespoly_array: zespoly_array, lokale_array:lokale_array, from_date:from_date, to_date:to_date}, //przekazujemy do pliku filtruj.php rozne tablice oraz dwie daty
 			function(output) {
 				$('#scena').html(output).fadeIn(1000);
 			});
@@ -146,9 +148,9 @@
 		<img src="image/inne/filtr_data.png" style="width:100%; height:12%;">
 		<center>
 		od:
-		<input type="date" name="" value=""><br>
+		<input type="date" id="from_date" value=""><br>
 		do:
-		<input type="date" name="" value=""><br>
+		<input type="date" id="to_date" value=""><br>
 		</center>
 		<img src="image/inne/filtr_gatunek.png" style="width:100%; height:12%;">
 			<div id="opcje_filtra_gatunek">

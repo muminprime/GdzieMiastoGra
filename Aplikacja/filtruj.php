@@ -64,6 +64,44 @@
 		$zapytanie .= ")";
 	
 	
+	// BLOK WYKONAWCZY DLA DAT
+	// obecnie formatka na stronie nie pozwala wpisywac zlego miesiaca ani dnia tygodnia powyżej 31, 
+	// ALE! jak np dla lutego wpiszemy 31, to zaakceptuje, tyle ze zwroci pusta wartosc. Gorzej z rokiem, bo jak wpiszemy np 0001, to zaakceptuje to jako rok 0001
+	// jeszcze gorzej, że nie da się rozróżnić, czy nie wpisano nic, czy np jest blednie wpisany dzień (np. lutego, jak w przykładzie powyżej), ale powiedzmy, że nam to wystarczy
+	$from_date = $_POST['from_date'];
+	$to_date = $_POST['to_date'];
+	$fd = DateTime::createFromFormat('Y-m-d', $from_date);
+	$td = DateTime::createFromFormat('Y-m-d', $to_date); // obiekty, dzięki którym sprawdzimy poprawność daty
+	
+	// TUTAJ TRZEBA PRZEMYŚLEĆ, JAK OGRANICZAĆ WYNIKI WZGLĘDEM BIEŻĄCEJ DATY
+	
+	//$cur_date = new DateTime();
+	//$cur_date->modify('-14 days');
+	
+	//echo $cur_date->format('Y-m-d');
+	//echo $from_date;
+	//echo "|".$to_date."|";
+	//if ( $ob != false)
+	//	echo $ob->format('Y-m-d');
+	$from_date .= " 00:00:00" ; //doklejamy godzine, żeby był format DATETIME
+	$to_date .= " 00:00:00" ; // można by też w drugą stronę, czyli w zapytaniu sql konwertować pole DATETIME z bazy na samą datę funkcją DATE() i dopiero wtedy porównywać z naszymi datami, ale byłoby to wolniejsze, szczególnie przy wielu rekordach
+
+	
+	// COŚ NIE DO KOŃCA DZIAŁA, JEŚLI CHODZI O DOKŁADNE PORÓWNYWANIE DATY Z GODZINĄ; poniżej konwertujemy datetime na date, ale mimo to, coś jest nie tak - trzeba to przemysleć
+	if (($fd !== false) AND ($td == false)) // jesli pierwsza data ma poprawny format (a druga albo jest pusta, albo mamy kiks z lutym opisany powyżej)
+		$zapytanie .= " AND DATE(koncerty.data_godzina) > DATE('".$from_date."')"; // wyświetl koncerty późniejsze
+	else if (($fd == false) AND ($td !== false)) // jw, tylko dla drugiej daty
+		$zapytanie .= " AND DATE(koncerty.data_godzina) < DATE('".$to_date."')"; // wyświetl koncerty wcześniejsze
+	else if (($fd !== false) AND ($td !== false)) // jeśli obydwie daty mają poprawny format (albo nie są puste, albo mamy kiks z lutym, opisany powyżej)
+	{
+		if ($from_date == $to_date)
+			$zapytanie .= " AND DATE(koncerty.data_godzina) = DATE('".$from_date."')";
+		else	
+			$zapytanie .= " AND DATE(koncerty.data_godzina) BETWEEN DATE('".$from_date."') AND DATE('".$to_date."')";
+		}
+	else 
+		{}
+	
 	
 	
 	
