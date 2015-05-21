@@ -116,13 +116,15 @@
 		czcionka = czcionka.toString();
 		document.body.style.fontSize = czcionka;		
 	} 
+	
     window.onload = function() {
 		get();
 		resizetekst();
-		build_filtr_gatunek("");
-		build_filtr_lokale("");
-		build_filtr_zespoly("");
-	}; 
+		build_filtr_gatunek(gatunki_array);
+		build_filtr_lokale(lokale_array);	
+		build_filtr_zespoly(zespoly_array);		
+		}
+		
 	window.onresize = function(){
 		resizetekst();	
 	}
