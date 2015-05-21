@@ -1,0 +1,44 @@
+@font-face
+{
+font-family: KaushanScript-Regular;
+src:url(../font/KaushanScript-Regular.otf);
+}
+#tlo_user{
+position:relative;
+font-family:KaushanScript-Regular;
+background: rgba(247, 125, 9, 0.85);
+border:2px solid red;
+height:86%;
+border-radius:20px;
+margin-top:5px;
+margin-left:8px;
+margin-right:5px;
+}
+#nazwa_sekcji_user{
+background-image: url('../image/inne/nazwa_sekcji_user.png') ;
+background-size:100% 100%;
+height: 12%;
+position:relative;
+padding:0;
+margin:0;
+}
+#form_login{
+font-family:KaushanScript-Regular;
+}
+#haslo,#login{
+width:30%;
+height:6%;
+font-size:2em;
+float:left;
+margin-top:10px;
+}
+#username, #password {
+width:60%;
+height:6%;
+float:left;
+margin-top:10px;
+
+}
+#username:focus, #password:focus {
+outline: 5px solid #e5f2f8;
+}

@@ -1,10 +1,11 @@
 <html id="main" style="font-size:10px;">
 <head>
 <?php include 'config.php';?> 
-
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" >
 <link rel="Stylesheet" type="text/css" href="style/main.css" />
 <link rel="Stylesheet" type="text/css" href="style/scena.css" />
 <link rel="Stylesheet" type="text/css" href="style/filtry.css" />
+<link rel="Stylesheet" type="text/css" href="style/user.css" />
 <script type="text/javascript" src="jquery.js"></script>
 
 <script type="text/javascript">
@@ -172,7 +173,22 @@
 	</div>
 </div>
 <div id="kra_pra" ></div>
-<div id="uzytkownik" style="background-image: url('../image/<?php echo "$tlo";?>/panel_user.png');"></div>
+<div id="uzytkownik" style="background-image: url('../image/<?php echo "$tlo";?>/panel_user.png');">
+	<div id="nazwa_sekcji_user">
+	</div>
+	<div id="tlo_user">
+		<img src="image/inne/zdjecie_user.png" style="width:64%; height:40%; border: 2px solid red;margin-top:10%;margin-left:18%;">
+		<form id="form_login">
+			<div id="login">Login:</div>
+			<input type="text" id="username" name="username">	
+			<div id="haslo">Hasło:</div>
+			<input type="password" id="password" name="password">
+		
+			
+		</form>
+		
+	</div>
+</div>
 <div id="menu1" style="background-image: url('../image/<?php echo "$motyw";?>/menu1.png');"></div>
 <div id="menu2" style="background-image: url('../image/<?php echo "$motyw";?>/menu2.png');"></div>
 <div id="menu3" style="background-image: url('../image/<?php echo "$motyw";?>/menu3.png');"></div>
