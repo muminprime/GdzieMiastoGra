@@ -25,20 +25,27 @@ margin:0;
 #form_login{
 font-family:KaushanScript-Regular;
 }
-#haslo,#login{
-width:30%;
-height:6%;
-font-size:2em;
-float:left;
-margin-top:10px;
+#Haslo,#Login{
+font-size:1.5em;
 }
 #username, #password {
-width:60%;
-height:6%;
-float:left;
-margin-top:10px;
-
+font-size:1em;
+margin-left:5px;
 }
 #username:focus, #password:focus {
-outline: 5px solid #e5f2f8;
+outline: 3px solid red;
+}
+#for_chackbox{
+position:relative;
+width:100%;
+display:block;
+}
+#forget{
+float:right;
+margin-right:10px;
+cursor: pointer;
+}
+#forget:hover{
+cursor: pointer;
+color:red;
 }

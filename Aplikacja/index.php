@@ -177,16 +177,18 @@
 	<div id="nazwa_sekcji_user">
 	</div>
 	<div id="tlo_user">
-		<img src="image/inne/zdjecie_user.png" style="width:64%; height:40%; border: 2px solid red;margin-top:10%;margin-left:18%;">
-		<form id="form_login">
-			<div id="login">Login:</div>
-			<input type="text" id="username" name="username">	
-			<div id="haslo">Hasło:</div>
-			<input type="password" id="password" name="password">
-		
-			
-		</form>
-		
+		<img src="image/inne/zdjecie_user.png" style="width:64%; height:40%; border: 2px solid red;margin-top:10%;margin-left:18%;margin-right:18%;">
+		<center>
+		<label id="Login">Login:</label><input type="text" id="username" name="username"></br>
+		<label id="Haslo">Hasło:</label><input type="password" id="password" name="password"></br>
+		</center>
+		<div id="for_chackbox">
+		<input type="checkbox" name="vehicle" value="Bike" style="cursor: pointer;"> 
+		Zapamiętaj mnnie
+		<a href="" style="text-align:left;"><label id="forget">Zapomniałem hasła !!</label></a>
+		<a href=""><img src="image/inne/button_loguj.png" style="width:64%; height:12%;margin-top:3%;margin-left:18%;margin-right:18%;"></a>
+		<a href=""><img src="image/inne/button_zarejestruj.png" style="width:64%; height:12%;margin-top:6%;margin-left:18%;margin-right:18%;"></a>
+		</div>
 	</div>
 </div>
 <div id="menu1" style="background-image: url('../image/<?php echo "$motyw";?>/menu1.png');"></div>
