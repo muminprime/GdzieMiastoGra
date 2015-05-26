@@ -187,7 +187,7 @@
 		Zapamiętaj mnnie
 		<a href="" style="text-align:left;"><label id="forget">Zapomniałem hasła !!</label></a>
 		<a href=""><img src="image/inne/button_loguj.png" style="width:64%; height:12%;margin-top:3%;margin-left:18%;margin-right:18%;"></a>
-		<a href=""><img src="image/inne/button_zarejestruj.png" style="width:64%; height:12%;margin-top:6%;margin-left:18%;margin-right:18%;"></a>
+		<a href="rejestracja.php"><img src="image/inne/button_zarejestruj.png" style="width:64%; height:12%;margin-top:6%;margin-left:18%;margin-right:18%;"></a>
 		</div>
 	</div>
 </div>

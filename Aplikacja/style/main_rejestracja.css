@@ -1,0 +1,223 @@
+@font-face
+{
+font-family: KaushanScript-Regular;
+src:url(../font/KaushanScript-Regular.otf);
+}
+body{
+margin:0px;
+padding:0px;
+width:100%;
+height:100%;
+}
+#logo{
+#background-image: url('../image/Motyw_cz/logo.png') ;
+background-size:100% 100%;
+position:relative;
+float:left;
+width:22.5%;
+height:22.5%;
+}
+#tytul{
+position:relative;
+#background-image: url('../image/Motyw_cz/tytul.png') ;
+background-size:100% 100%;
+float:left;
+width:77.5%;
+height:22.5%;
+}
+#kra_filtr{
+position:relative;
+background-image: url('../image/kratownica/kra_filtr.png');
+background-size:100% 100%;
+float:left;
+width:26%;
+height:7%;
+}
+#kra_scena{
+position:relative;
+background-image: url('../image/kratownica/kra_scena.png');
+background-size:100% 100%;
+float:left;
+width:48.0%;
+height:7%;
+}
+#kra_user{
+position:relative;
+background-image: url('../image/kratownica/kra_user.png');
+background-size:100% 100%;
+float:left;
+width:26%;
+height:7%;
+}
+#sekcja_filtrow{
+#background-image: url('../image/tlo_nie/filtry.png') ;
+background-size:100% 100%;
+position:relative;
+float:left;
+border-right-width: 4px;
+border-right-style:solid;
+border-right-color:black;
+border-top-width:4px;
+border-top-style:solid;
+border-top-color:black;
+width:calc(22.475% - 4px);
+height:calc(88% - 4px);
+}
+#kra_lew{
+position:relative;
+background-image: url('../image/kratownica/kra_lew.png');
+background-size:100% 100%;
+float:left;
+height:88%;
+width:3.6%;
+}
+#kra_pra{
+position:relative;
+background-image: url('../image/kratownica/kra_pra.png');
+background-size:100% 100%;
+float:left;
+height:88%;
+width:3.6%;
+}
+#uzytkownik{
+#background-image: url('../image/tlo_nie/panel_user.png') ;
+#border: 2px solid red;
+border-left-width: 4px;
+border-left-style:solid;
+border-left-color:black;
+border-top-width:4px;
+border-top-style:solid;
+border-top-color:black;
+background-size:100% 100%;
+position:relative;
+float:left;
+width:calc(22.475% - 4px);
+height:calc(88% - 4px);
+}
+
+#scena_do_pojawiania{
+#background-image: url('../image/tlo_nie/scena.png') ;
+background-size:100% 100%;
+border-left-width: 4px;
+border-left-style:solid;
+border-left-color:black;
+border-right-width: 4px;
+border-right-style:solid;
+border-right-color:black;
+border-top-width: 4px;
+border-top-style:solid;
+border-top-color:black;
+position:relative;
+float:left;
+width:calc(47.85% - 8px);
+height:calc(88% - 4px);
+margin:0px;
+}
+
+#menu1{
+#background-image: url('../image/Motyw_cz/menu.png') ;
+background-size:100% 100%;
+position:relative;
+float:left;
+width:20%;
+height:20%;
+}
+#menu2{
+#background-image: url('../image/Motyw_cz/menu.png') ;
+background-size:100% 100%;
+position:relative;
+float:left;
+width:20%;
+height:20%;
+}
+#menu3{
+#background-image: url('../image/Motyw_cz/menu.png') ;
+background-size:100% 100%;
+position:relative;
+float:left;
+width:20%;
+height:20%;
+}
+#menu4{
+#background-image: url('../image/Motyw_cz/menu.png') ;
+background-size:100% 100%;
+position:relative;
+float:left;
+width:20%;
+height:20%;
+}
+#menu5{
+#background-image: url('../image/Motyw_cz/menu.png') ;
+background-size:100% 100%;
+position:relative;
+float:left;
+width:20%;
+height:20%;
+}
+#stopka{
+#background-image: url('../image/Motyw_cz/stopka.png') ;
+background-size:100% 100%;
+position:relative;
+float:left;
+width:100%;
+height:10%;
+}
+#tlo_filtr{
+position:relative;
+font-family:KaushanScript-Regular;
+background: rgba(247, 125, 9, 0.85);
+border:2px solid red;
+height:98%;
+border-radius:20px;
+margin-top:5px;
+margin-left:8px;
+margin-right:5px;
+}
+#tlo_user{
+position:relative;
+font-family:KaushanScript-Regular;
+background: rgba(247, 125, 9, 0.85);
+border:2px solid red;
+height:98%;
+border-radius:20px;
+margin-top:5px;
+margin-left:8px;
+margin-right:5px;
+}
+#nazwa_sekcji_scena{
+background-image: url('../image/inne/rejestracja.png') ;
+background-size:100% 100%;
+height: 12%;
+position:relative;
+padding:0;
+margin:0;
+}
+#formularz{
+position:relative;
+font-family:KaushanScript-Regular;
+background: rgba(247, 125, 9, 0.85);
+border:2px solid red;
+height:86%;
+border-radius:20px;
+margin-top:5px;
+margin-left:8px;
+margin-right:5px;
+}
+p{
+font-family:KaushanScript-Regular;
+font-size:1.7em;
+margin:0;
+margin-top:5px;
+padding:0;
+}
+input[type=radio] {
+	width:2em;
+    height: 2em;
+}
+#wybor_konta{
+float:left;
+margin:0;
+padding:0;
+width:25%;
+padding-left:8%;
+}
