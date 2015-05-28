@@ -19,6 +19,16 @@
 			});
 		//save_change("","","");
 	}
+	
+	function load_right_div_depending_on_login(){ // ladujemy prawa sekcje w zaleznosci od tego, czy ktos jest zalogowany czy nie
+		$('#uzytkownik').hide();
+		$.post('sekcja_uzytkownika.php', {},
+			function(output){
+				$('#uzytkownik').html(output).fadeIn(500);
+			});
+	}
+	
+	
 	function perform_filtering(){
 		var from_date = document.getElementById('from_date').value;
 		var to_date = document.getElementById('to_date').value;
@@ -124,6 +134,7 @@
 		build_filtr_gatunek(gatunki_array);
 		build_filtr_lokale(lokale_array);	
 		build_filtr_zespoly(zespoly_array);		
+		load_right_div_depending_on_login();
 		}
 		
 	window.onresize = function(){
@@ -174,7 +185,7 @@
 </div>
 <div id="kra_pra" ></div>
 <div id="uzytkownik" style="background-image: url('../image/<?php echo "$tlo";?>/panel_user.png');">
-	<div id="nazwa_sekcji_user">
+	<!--<div id="nazwa_sekcji_user">
 	</div>
 	<div id="tlo_user">
 		<img src="image/inne/zdjecie_user.png" style="width:64%; height:40%; border: 2px solid red;margin-top:10%;margin-left:18%;margin-right:18%;">
@@ -189,7 +200,7 @@
 		<a href=""><img src="image/inne/button_loguj.png" style="width:64%; height:12%;margin-top:3%;margin-left:18%;margin-right:18%;"></a>
 		<a href="rejestracja.php"><img src="image/inne/button_zarejestruj.png" style="width:64%; height:12%;margin-top:6%;margin-left:18%;margin-right:18%;"></a>
 		</div>
-	</div>
+	</div> -->
 </div>
 <div id="menu1" style="background-image: url('../image/<?php echo "$motyw";?>/menu1.png');"></div>
 <div id="menu2" style="background-image: url('../image/<?php echo "$motyw";?>/menu2.png');"></div>

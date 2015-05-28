@@ -1,5 +1,4 @@
 <?php
-	
 	$wybor_zespolu = $_POST['zespol']; //przekazanie tablicy zespolow z index.ph
 	if($wybor_zespolu=="") //sprawdzamy czytablica jest pusta
 		echo "brak";

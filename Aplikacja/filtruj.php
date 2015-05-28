@@ -67,7 +67,7 @@
 	// BLOK WYKONAWCZY DLA DAT
 	// obecnie formatka na stronie nie pozwala wpisywac zlego miesiaca ani dnia tygodnia powyżej 31, 
 	// ALE! jak np dla lutego wpiszemy 31, to zaakceptuje, tyle ze zwroci pusta wartosc. Gorzej z rokiem, bo jak wpiszemy np 0001, to zaakceptuje to jako rok 0001
-	// jeszcze gorzej, że nie da się rozróżnić, czy nie wpisano nic, czy np jest blednie wpisany dzień (np. lutego, jak w przykładzie powyżej), ale powiedzmy, że nam to wystarczy
+	// jeszcze gorzej, że nie da się rozróżnić, czy nie wpisano nic, czy np jest blednie wpisany dzień (np. 31 lutego, jak w przykładzie powyżej), ale powiedzmy, że nam to wystarczy
 	$from_date = $_POST['from_date'];
 	$to_date = $_POST['to_date'];
 	$fd = DateTime::createFromFormat('Y-m-d', $from_date);
@@ -102,12 +102,8 @@
 	else 
 		{}
 	
-	
-	
-	
 	$wynik = mysql_query($zapytanie);
 	$wynik_num_rows = mysql_num_rows($wynik);
-	
 	
 	//ponizszy kod przkopiowany z data.php
 	if($wynik_num_rows==0)
