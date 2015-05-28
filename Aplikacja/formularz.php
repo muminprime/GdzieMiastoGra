@@ -18,6 +18,7 @@ else if($wybor==2)
 	<label id=\"div_poje_wpisu\">Numer tel.*:</label><input required pattern=\"^([0-9]{9})|(([0-9]{3}-){2}[0-9]{3})$\" title=\"Poprawny format : 123-456-789 lub 123456789\" placeholder=\"podaj numer\" type=\"tel\" id=\"pole\" name=\"tel\" size=\"15\" maxlength=\"15\"><br>
 	<input type='submit' value='wyślij' class='btn' />
 	</form>
+	<button onclick=\"wypelnij_form()\">Click me</button>
 	";
 }
 else

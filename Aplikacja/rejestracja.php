@@ -68,6 +68,17 @@
 
 	
 	
+	function wypelnij_form(){
+		document.getElementsByName("username")[0].value = "Janek";
+		document.getElementsByName("password")[0].value = "Janek2@@";
+		document.getElementsByName("submit_password")[0].value = "Janek2@@";
+		document.getElementsByName("submit_usereamil")[0].value = "kowalski@o2.pl";
+		document.getElementsByName("usereamil")[0].value = "kowalski@o2.pl";
+		document.getElementsByName("nazwa_zespolu")[0].value = "The kowalski";
+		document.getElementsByName("www_side")[0].value = "www.kowalski.pl";
+		document.getElementsByName("tel")[0].value = "234-786-345";
+
+	}
 	
 	// funkcja wyaswietlajaca formularz w zaleznosci od wybranego typu konta
 	function get_formularz(){
@@ -79,6 +90,7 @@
 		else if(document.getElementById("form_zespol").checked == true)
 		{
 			wybor=2;
+			
 		}
 		else if(document.getElementById("form_klub").checked == true)
 		{
@@ -98,6 +110,7 @@
 		czcionka = czcionka.toString();
 		document.body.style.fontSize = czcionka;		
 	} //funckaj ustawiajaca wielkosc tekstu
+	
 	
     window.onload = function() {
 		resizetekst();
