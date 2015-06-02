@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Czas generowania: 13 Maj 2015, 23:20
+-- Czas generowania: 02 Cze 2015, 21:08
 -- Wersja serwera: 5.6.21
 -- Wersja PHP: 5.6.3
 
@@ -130,6 +130,29 @@ INSERT INTO `lokale` (`id`, `nazwa`, `adres`, `godziny`, `logo`, `ograniczenia`,
 -- --------------------------------------------------------
 
 --
+-- Struktura tabeli dla tabeli `uzytkownicy`
+--
+
+CREATE TABLE IF NOT EXISTS `uzytkownicy` (
+`id` int(11) NOT NULL,
+  `login` varchar(45) NOT NULL,
+  `haslo` varchar(45) NOT NULL,
+  `zespoly_id` int(11) DEFAULT NULL COMMENT 'W tej kolumnie będzie można umieścić id zespołu, jeśli konto użytkownika jest kontem zespołu. Dzięki temu będzie można korzystać z danych zespołu. Jeśli będzie wartość null, to znaczy, że dany użytkownik nie jest zespołem. W tym polu nie chodzi o to, że np dany użytkownik jest członkiem zespołu, tylko że jest to użytkownik typu "zespół"!\nTrzeba tylko będzie to jakoś weryfikować podczas tworzenia konta.',
+  `lokale_id` int(11) DEFAULT NULL COMMENT 'analogicznie jak zespoly_id',
+  `email` varchar(45) NOT NULL COMMENT 'potrzebny do weryfikacji konta itp, nie mylić go z emailem zawartym w tabeli "kontakty" - tam są kontakty przeznaczone do upublicznienia, ten tutaj jest tylko dla admina strony'
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Zrzut danych tabeli `uzytkownicy`
+--
+
+INSERT INTO `uzytkownicy` (`id`, `login`, `haslo`, `zespoly_id`, `lokale_id`, `email`) VALUES
+(1, 'ichtroje', 'haslo', 1, NULL, 'jakisemail@jakasdomena.com'),
+(2, 'framerowie666', 'haslo', 3, NULL, 'email');
+
+-- --------------------------------------------------------
+
+--
 -- Struktura tabeli dla tabeli `zespoly`
 --
 
@@ -186,6 +209,12 @@ ALTER TABLE `lokale`
  ADD PRIMARY KEY (`id`), ADD KEY `fk_lokale_kontakty1_idx` (`kontakty_id`);
 
 --
+-- Indexes for table `uzytkownicy`
+--
+ALTER TABLE `uzytkownicy`
+ ADD PRIMARY KEY (`id`), ADD KEY `fk_uzytkownicy_zespoly1_idx` (`zespoly_id`), ADD KEY `fk_uzytkownicy_lokale1_idx` (`lokale_id`);
+
+--
 -- Indexes for table `zespoly`
 --
 ALTER TABLE `zespoly`
@@ -205,6 +234,11 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 ALTER TABLE `lokale`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT dla tabeli `uzytkownicy`
+--
+ALTER TABLE `uzytkownicy`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT dla tabeli `zespoly`
 --
@@ -226,6 +260,13 @@ ADD CONSTRAINT `fk_koncerty_zespoly1` FOREIGN KEY (`zespoly_id`) REFERENCES `zes
 --
 ALTER TABLE `lokale`
 ADD CONSTRAINT `fk_lokale_kontakty1` FOREIGN KEY (`kontakty_id`) REFERENCES `kontakty` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Ograniczenia dla tabeli `uzytkownicy`
+--
+ALTER TABLE `uzytkownicy`
+ADD CONSTRAINT `fk_uzytkownicy_lokale1` FOREIGN KEY (`lokale_id`) REFERENCES `lokale` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+ADD CONSTRAINT `fk_uzytkownicy_zespoly1` FOREIGN KEY (`zespoly_id`) REFERENCES `zespoly` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Ograniczenia dla tabeli `zespoly`
