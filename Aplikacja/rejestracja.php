@@ -35,6 +35,7 @@
 	<div id="nazwa_sekcji_scena">
 	</div>
 	<div id="formularz">
+	<div id ="formularz_wnetrze">
 		<center><p>Wybierz rodzaj konta</p></center>
 		<form>
 		<div id="wybor_konta"><input id="form_user" type="radio"  name="group1" checked> Użtkowinik</div>
@@ -44,6 +45,7 @@
 		<hr>
 		<div id="dane_formularza">
 		</div>
+	</div>
 	</div>
 </div>
 <div id="kra_pra" ></div>
@@ -69,15 +71,27 @@
 	
 	
 	function wypelnij_form(){
-		document.getElementsByName("username")[0].value = "Janek";
-		document.getElementsByName("password")[0].value = "Janek2@@";
-		document.getElementsByName("submit_password")[0].value = "Janek2@@";
-		document.getElementsByName("submit_usereamil")[0].value = "kowalski@o2.pl";
-		document.getElementsByName("usereamil")[0].value = "kowalski@o2.pl";
-		document.getElementsByName("nazwa_zespolu")[0].value = "The kowalski";
-		document.getElementsByName("www_side")[0].value = "www.kowalski.pl";
-		document.getElementsByName("tel")[0].value = "234-786-345";
-
+		if(document.getElementById("form_user").checked == true)
+		{
+			document.getElementsByName("username")[0].value = "Janek";
+			document.getElementsByName("password")[0].value = "Janek2@@";
+			document.getElementsByName("submit_password")[0].value = "Janek2@@";
+			document.getElementsByName("submit_usereamil")[0].value = "kowalski@o2.pl";
+			document.getElementsByName("usereamil")[0].value = "kowalski@o2.pl";
+		}
+		else if(document.getElementById("form_zespol").checked == true)
+		{
+			document.getElementsByName("username")[0].value = "Janek";
+			document.getElementsByName("password")[0].value = "Janek2@@";
+			document.getElementsByName("submit_password")[0].value = "Janek2@@";
+			document.getElementsByName("submit_usereamil")[0].value = "kowalski@o2.pl";
+			document.getElementsByName("usereamil")[0].value = "kowalski@o2.pl";
+			document.getElementsByName("nazwa_zespolu")[0].value = "The kowalski";
+			document.getElementsByName("www_side")[0].value = "www.kowalski.pl";
+			document.getElementsByName("tel")[0].value = "234-786-345";
+		}
+		
+		
 	}
 	
 	// funkcja wyaswietlajaca formularz w zaleznosci od wybranego typu konta
