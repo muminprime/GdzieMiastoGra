@@ -74,7 +74,7 @@
 			document.getElementsByName("username")[0].value = "Janek";
 			document.getElementsByName("password")[0].value = "Janek2@@";
 			document.getElementsByName("submit_password")[0].value = "Janek2@@";
-			document.getElementsByName("submit_usereamil")[0].value = "kowalski@o2.pl";
+			document.getElementsByName("submit_useremail")[0].value = "kowalski@o2.pl";
 			document.getElementsByName("useremail")[0].value = "kowalski@o2.pl";
 			
 		}
@@ -83,7 +83,7 @@
 			document.getElementsByName("username")[0].value = "Janek";
 			document.getElementsByName("password")[0].value = "Janek2@@";
 			document.getElementsByName("submit_password")[0].value = "Janek2@@";
-			document.getElementsByName("submit_usereamil")[0].value = "kowalski@o2.pl";
+			document.getElementsByName("submit_useremail")[0].value = "kowalski@o2.pl";
 			document.getElementsByName("useremail")[0].value = "kowalski@o2.pl";
 			document.getElementsByName("nazwa_zespolu")[0].value = "The kowalski";
 			document.getElementsByName("www_side")[0].value = "www.kowalski.pl";

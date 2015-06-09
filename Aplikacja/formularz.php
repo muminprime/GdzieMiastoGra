@@ -1,4 +1,5 @@
 <?php
+
 mysql_connect("localhost","root","");
 $gatunki = mysql_query("SELECT 	gatunki.id as 'id', gatunki.nazwa as 'nazwa_gatunku'
 							FROM database.gatunki");
@@ -12,7 +13,7 @@ if($wybor==1)
 	<label id=\"div_poje_wpisu\">Hasło*:</label><input required pattern=\"^(?=.*\d)(?=.*[a-z])(?=.*[\!\@\#\$\%\^\&\*\(\)\_\+\-\=])(?=.*[A-Z])(?!.*\s).{8,}$\" title=\"Wpisane hasło użytkownika musi mieć minimum osiem znaków, pośród których musi być co najmniej jedna wielka litera, jedna mała, jedna cyfra oraz znak specjalny: !@#$%^&*()_+-=\" placeholder=\"Podaj hasło\" type=\"password\" id=\"pole\" name=\"password\" size=\"15\" maxlength=\"24\"><br>
 	<label id=\"div_poje_wpisu\">Potwierdz hasło*:</label><input required pattern=\"^(?=.*\d)(?=.*[a-z])(?=.*[\!\@\#\$\%\^\&\*\(\)\_\+\-\=])(?=.*[A-Z])(?!.*\s).{8,}$\" title=\"Wpisane hasło użytkownika musi mieć minimum osiem znaków, pośród których musi być co najmniej jedna wielka litera, jedna mała, jedna cyfra oraz znak specjalny: !@#$%^&*()_+-=\" placeholder=\"Powtórz hasło\" type=\"password\" id=\"pole\" name=\"submit_password\" size=\"15\" maxlength=\"24\"><br>
 	<label id=\"div_poje_wpisu\">E-mail*:</label><input required placeholder=\"Podaj adres email\" type=\"email\" id=\"pole\" name=\"useremail\" size=\"15\" maxlength=\"50\"><br>
-	<label id=\"div_poje_wpisu\">Potwierdz E-mail*:</label><input required autocomplete=\"off\" placeholder=\"Powtórz adres email\" type=\"email\" id=\"pole\" name=\"submit_usereamil\" size=\"15\" ><br>
+	<label id=\"div_poje_wpisu\">Potwierdz E-mail*:</label><input required autocomplete=\"off\" placeholder=\"Powtórz adres email\" type=\"email\" id=\"pole\" name=\"submit_useremail\" size=\"15\" ><br>
 	<label id=\"div_poje_wpisu\">Data urodzenia*:</label><input required type=\"date\" id=\"pole\" name=\"bday\" autocomplete=\"off\" size=\"15\"><br>
 	<label id=\"div_poje_wpisu\">Wybierz ulubione gatunki muzyki:</label><br><br>";
 	if($gatunki_num_rows==0)

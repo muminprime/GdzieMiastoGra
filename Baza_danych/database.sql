@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Czas generowania: 06 Cze 2015, 20:33
+-- Czas generowania: 09 Cze 2015, 12:04
 -- Wersja serwera: 5.6.21
 -- Wersja PHP: 5.6.3
 
@@ -20,6 +20,36 @@ SET time_zone = "+00:00";
 -- Baza danych: `database`
 --
 
+DELIMITER $$
+--
+-- Procedury
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `dodaj_kolumne`( IN tabela VARCHAR(30),  IN kolumna VARCHAR(30))
+BEGIN
+IF NOT EXISTS( (SELECT * FROM information_schema.COLUMNS WHERE TABLE_SCHEMA=DATABASE()
+        AND COLUMN_NAME=kolumna AND TABLE_NAME=tabela) )
+THEN
+SET @sql = CONCAT('ALTER TABLE `database`.',tabela,' ADD COLUMN ',kolumna,' INT NULL DEFAULT 0;'); 
+    PREPARE s1 from @sql;
+    EXECUTE s1;
+#EXECUTE IMMEDIATE CONCAT('ALTER TABLE `database`.',tabela,' ADD COLUMN ',kolumna,' INT NULL DEFAULT 0');
+#ALTER TABLE `database`.ulubione_gatunki
+#ADD COLUMN kolumna INT NULL DEFAULT 0;
+END IF;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `proc`()
+BEGIN
+IF NOT EXISTS( (SELECT * FROM information_schema.COLUMNS WHERE TABLE_SCHEMA=DATABASE()
+        AND COLUMN_NAME='gat1' AND TABLE_NAME='ulubione_gatunki') )
+THEN
+ALTER TABLE `database`.`ulubione_gatunki` 
+ADD COLUMN `gat1` INT NULL DEFAULT 0;
+END IF;
+END$$
+
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -32,7 +62,15 @@ CREATE TABLE IF NOT EXISTS `dane_uzytkownika` (
   `nazwisko` varchar(45) DEFAULT NULL,
   `data_urodzenia` date NOT NULL,
   `ulubione_gatunki_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Zrzut danych tabeli `dane_uzytkownika`
+--
+
+INSERT INTO `dane_uzytkownika` (`id`, `imie`, `nazwisko`, `data_urodzenia`, `ulubione_gatunki_id`) VALUES
+(3, NULL, NULL, '2015-06-11', 15),
+(4, NULL, NULL, '1998-01-28', 16);
 
 -- --------------------------------------------------------
 
@@ -149,8 +187,26 @@ INSERT INTO `lokale` (`id`, `nazwa`, `adres`, `godziny`, `logo`, `ograniczenia`,
 
 CREATE TABLE IF NOT EXISTS `ulubione_gatunki` (
 `id` int(11) NOT NULL,
-  `gat1` int(11) DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `gat1` int(11) DEFAULT '0',
+  `gat2` int(11) DEFAULT '0',
+  `gat3` int(11) DEFAULT '0',
+  `gat4` int(11) DEFAULT '0',
+  `gat5` int(11) DEFAULT '0',
+  `gat6` int(11) DEFAULT '0',
+  `gat7` int(11) DEFAULT '0',
+  `gat8` int(11) DEFAULT '0',
+  `gat9` int(11) DEFAULT '0',
+  `gat10` int(11) DEFAULT '0',
+  `gat11` int(11) DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+
+--
+-- Zrzut danych tabeli `ulubione_gatunki`
+--
+
+INSERT INTO `ulubione_gatunki` (`id`, `gat1`, `gat2`, `gat3`, `gat4`, `gat5`, `gat6`, `gat7`, `gat8`, `gat9`, `gat10`, `gat11`) VALUES
+(15, 1, 6, 11, 0, 0, 0, 0, 0, 0, 0, 0),
+(16, 1, 5, 6, 10, 11, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -159,23 +215,23 @@ CREATE TABLE IF NOT EXISTS `ulubione_gatunki` (
 --
 
 CREATE TABLE IF NOT EXISTS `uzytkownicy` (
-`id` int(11) NOT NULL,
   `login` varchar(45) NOT NULL,
   `haslo` varchar(45) NOT NULL,
   `zespoly_id` int(11) DEFAULT NULL COMMENT 'W tej kolumnie będzie można umieścić id zespołu, jeśli konto użytkownika jest kontem zespołu. Dzięki temu będzie można korzystać z danych zespołu. Jeśli będzie wartość null, to znaczy, że dany użytkownik nie jest zespołem. W tym polu nie chodzi o to, że np dany użytkownik jest członkiem zespołu, tylko że jest to użytkownik typu "zespół"!\nTrzeba tylko będzie to jakoś weryfikować podczas tworzenia konta.',
   `lokale_id` int(11) DEFAULT NULL COMMENT 'analogicznie jak zespoly_id',
   `email` varchar(45) NOT NULL COMMENT 'potrzebny do weryfikacji konta itp, nie mylić go z emailem zawartym w tabeli "kontakty" - tam są kontakty przeznaczone do upublicznienia, ten tutaj jest tylko dla admina strony',
   `dane_uzytkownika_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Zrzut danych tabeli `uzytkownicy`
 --
 
-INSERT INTO `uzytkownicy` (`id`, `login`, `haslo`, `zespoly_id`, `lokale_id`, `email`, `dane_uzytkownika_id`) VALUES
-(1, 'ichtroje', 'haslo', 1, NULL, 'jakisemail@jakasdomena.com', NULL),
-(2, 'framerowie666', 'haslo', 3, NULL, 'email', NULL),
-(9, 'Janek', 'Janek2@@', NULL, NULL, 'kowalski@o2.pl', NULL);
+INSERT INTO `uzytkownicy` (`login`, `haslo`, `zespoly_id`, `lokale_id`, `email`, `dane_uzytkownika_id`) VALUES
+('ekwlazlo', 'Zaq12wsx!', NULL, NULL, 'jakismail@op.pl', 4),
+('framerowie666', 'haslo', 3, NULL, 'email', NULL),
+('ichtroje', 'haslo', 1, NULL, 'jakisemail@jakasdomena.com', NULL),
+('Janeks', 'Janek2@@', NULL, NULL, 'skowalski@o2.pl', 3);
 
 -- --------------------------------------------------------
 
@@ -251,7 +307,7 @@ ALTER TABLE `ulubione_gatunki`
 -- Indexes for table `uzytkownicy`
 --
 ALTER TABLE `uzytkownicy`
- ADD PRIMARY KEY (`id`), ADD KEY `fk_uzytkownicy_zespoly1_idx` (`zespoly_id`), ADD KEY `fk_uzytkownicy_lokale1_idx` (`lokale_id`), ADD KEY `fk_uzytkownicy_dane_uzytkownika1_idx` (`dane_uzytkownika_id`);
+ ADD PRIMARY KEY (`login`), ADD KEY `fk_uzytkownicy_zespoly1_idx` (`zespoly_id`), ADD KEY `fk_uzytkownicy_lokale1_idx` (`lokale_id`), ADD KEY `fk_uzytkownicy_dane_uzytkownika1_idx` (`dane_uzytkownika_id`);
 
 --
 -- Indexes for table `zespoly`
@@ -267,7 +323,7 @@ ALTER TABLE `zespoly`
 -- AUTO_INCREMENT dla tabeli `dane_uzytkownika`
 --
 ALTER TABLE `dane_uzytkownika`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT dla tabeli `kontakty`
 --
@@ -282,12 +338,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 -- AUTO_INCREMENT dla tabeli `ulubione_gatunki`
 --
 ALTER TABLE `ulubione_gatunki`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT dla tabeli `uzytkownicy`
---
-ALTER TABLE `uzytkownicy`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT dla tabeli `zespoly`
 --

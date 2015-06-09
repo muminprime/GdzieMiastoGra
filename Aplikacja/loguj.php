@@ -19,7 +19,7 @@
 			$flaga = true;
 			if ($data['haslo'] == $haslo)
 			{
-				$date_of_expiry = time() + 30 ;
+				$date_of_expiry = time() + 3600; // + godzina od obecnego czasu
 				setcookie( "uzytkownik", $login, $date_of_expiry );
 				echo "Zalogowano!";
 				break;
