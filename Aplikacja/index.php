@@ -21,7 +21,6 @@
 	}
 	
 	function load_right_div_depending_on_login(){ // ladujemy prawa sekcje w zaleznosci od tego, czy ktos jest zalogowany czy nie
-		$('#uzytkownik').hide();
 		$.post('sekcja_uzytkownika.php', {},
 			function(output){
 				$('#uzytkownik').html(output).fadeIn(500);
@@ -185,22 +184,6 @@
 </div>
 <div id="kra_pra" ></div>
 <div id="uzytkownik" style="background-image: url('../image/<?php echo "$tlo";?>/panel_user.png');">
-	<!--<div id="nazwa_sekcji_user">
-	</div>
-	<div id="tlo_user">
-		<img src="image/inne/zdjecie_user.png" style="width:64%; height:40%; border: 2px solid red;margin-top:10%;margin-left:18%;margin-right:18%;">
-		<center>
-		<label id="Login">Login:</label><input type="text" id="username" name="username"></br>
-		<label id="Haslo">Hasło:</label><input type="password" id="password" name="password"></br>
-		</center>
-		<div id="for_chackbox">
-		<input type="checkbox" name="vehicle" value="Bike" style="cursor: pointer;"> 
-		Zapamiętaj mnnie
-		<a href="" style="text-align:left;"><label id="forget">Zapomniałem hasła !!</label></a>
-		<a href=""><img src="image/inne/button_loguj.png" style="width:64%; height:12%;margin-top:3%;margin-left:18%;margin-right:18%;"></a>
-		<a href="rejestracja.php"><img src="image/inne/button_zarejestruj.png" style="width:64%; height:12%;margin-top:6%;margin-left:18%;margin-right:18%;"></a>
-		</div>
-	</div> -->
 </div>
 <div id="menu1" style="background-image: url('../image/<?php echo "$motyw";?>/menu1.png');"></div>
 <div id="menu2" style="background-image: url('../image/<?php echo "$motyw";?>/menu2.png');"></div>

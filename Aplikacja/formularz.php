@@ -11,6 +11,8 @@ if($wybor==1)
 	<form action=\"stworz_konto.php\" method=\"POST\" onsubmit=\"return sprawdz();\">
 	<label id=\"div_poje_wpisu\">Login*:</label><input required title=\"Login może miec maksymalnie 20 znakow. Musi zaczynać się od malej litery, dużej litery lub cyfry. Może zawierac symbole: _ - \" pattern=\"^([a-zA-Z0-9]{1})([a-zA-Z0-9_-]{2,20})$\" placeholder=\"Podaj login\" type=\"text\" id=\"pole\" name=\"username\" size=\"15\" maxlength=\"20\"><br>
 	<label id=\"div_poje_wpisu\">Hasło*:</label><input required pattern=\"^(?=.*\d)(?=.*[a-z])(?=.*[\!\@\#\$\%\^\&\*\(\)\_\+\-\=])(?=.*[A-Z])(?!.*\s).{8,}$\" title=\"Wpisane hasło użytkownika musi mieć minimum osiem znaków, pośród których musi być co najmniej jedna wielka litera, jedna mała, jedna cyfra oraz znak specjalny: !@#$%^&*()_+-=\" placeholder=\"Podaj hasło\" type=\"password\" id=\"pole\" name=\"password\" size=\"15\" maxlength=\"24\"><br>
+	<label id=\"div_poje_wpisu\">Imię:</label><input title=\"Podaj swoje imię zaczynając od dużej litery\" pattern=\"^([A-Z]{1})([a-z]{2,20})$\" placeholder=\"Podaj imię\" type=\"text\" id=\"pole\" name=\"imie\" size=\"15\" maxlength=\"20\"><br>
+	<label id=\"div_poje_wpisu\">Nazwisko:</label><input title=\"Podaj swoje nazwisko zaczynając od dużej litery\" pattern=\"^([A-Z]{1})([a-z]{2,20})$\" placeholder=\"Podaj nazwisko\" type=\"text\" id=\"pole\" name=\"nazwisko\" size=\"15\" maxlength=\"20\"><br>
 	<label id=\"div_poje_wpisu\">Potwierdz hasło*:</label><input required pattern=\"^(?=.*\d)(?=.*[a-z])(?=.*[\!\@\#\$\%\^\&\*\(\)\_\+\-\=])(?=.*[A-Z])(?!.*\s).{8,}$\" title=\"Wpisane hasło użytkownika musi mieć minimum osiem znaków, pośród których musi być co najmniej jedna wielka litera, jedna mała, jedna cyfra oraz znak specjalny: !@#$%^&*()_+-=\" placeholder=\"Powtórz hasło\" type=\"password\" id=\"pole\" name=\"submit_password\" size=\"15\" maxlength=\"24\"><br>
 	<label id=\"div_poje_wpisu\">E-mail*:</label><input required placeholder=\"Podaj adres email\" type=\"email\" id=\"pole\" name=\"useremail\" size=\"15\" maxlength=\"50\"><br>
 	<label id=\"div_poje_wpisu\">Potwierdz E-mail*:</label><input required autocomplete=\"off\" placeholder=\"Powtórz adres email\" type=\"email\" id=\"pole\" name=\"submit_useremail\" size=\"15\" ><br>
@@ -31,7 +33,7 @@ if($wybor==1)
 	echo"<div id=\"regulamin\"><center>regulamin strony</center>";
 	echo"
 	</div>
-	<div id=\"checkbox_regulamin\"><input type=\"checkbox\" name=\"regulamin\" required> akceptuje regulamin</div>
+	<div id=\"checkbox_regulamin\"><input type=\"checkbox\" name=\"regulamin\" required> *akceptuje regulamin</div>
 	<div id=\"submit_button\"><input type='submit' value='rejestruj' class='btn' /></div>
 	</form>
 	<button onclick=\"wypelnij_form()\">Click me</button>
