@@ -1,7 +1,7 @@
 <html id="main" style="font-size:10px;">
 <head>
 <?php include 'config.php';?> 
-<!-- mta ustawia poprawne kodowanie strony dla polskich znakow-->
+<!-- meta ustawia poprawne kodowanie strony dla polskich znakow-->
 
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" >
 
@@ -19,9 +19,9 @@
 </head>
 
 <body >
-
+<a href="index.php">
 <div id="logo" style="background-image: url('../image/<?php echo "$motyw";?>/logo.png');" ></div>
-<div id="tytul" style="background-image: url('../image/<?php echo "$motyw";?>/tytul.png');" ></div>
+<div id="tytul" style="background-image: url('../image/<?php echo "$motyw";?>/tytul.png');" ></div></a>
 <div id="kra_filtr"  ></div>
 <div id="kra_scena"  ></div>
 <div id="kra_user"  ></div>

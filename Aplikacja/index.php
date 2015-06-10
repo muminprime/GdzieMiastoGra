@@ -144,9 +144,9 @@
 </head>
 
 <body >
-
+<a href="index.php">
 <div id="logo" style="background-image: url('../image/<?php echo "$motyw";?>/logo.png');" ></div>
-<div id="tytul" style="background-image: url('../image/<?php echo "$motyw";?>/tytul.png');" ></div>
+<div id="tytul" style="background-image: url('../image/<?php echo "$motyw";?>/tytul.png');" ></div></a>
 <div id="kra_filtr"  ></div>
 <div id="kra_scena"  ></div>
 <div id="kra_user"  ></div>
